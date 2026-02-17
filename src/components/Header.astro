@@ -9,11 +9,9 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="header-glass" id="main-header">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem;">
+  <div class="container header-inner">
     <a href="/" class="brand" aria-label="Rio Farm - Trang chủ">
-      <span style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">
-        <span style="color:var(--gold);">Rio</span> Farm
-      </span>
+      <span class="brand-text"><span style="color:var(--gold);">Rio</span> Farm</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation" role="navigation">
@@ -27,9 +25,9 @@ const currentPath = Astro.url.pathname;
       ))}
     </nav>
 
-    <div style="display:flex;align-items:center;gap:0.75rem;">
+    <div class="header-actions">
       <button class="cart-btn" id="cart-toggle" aria-label="Mở giỏ hàng">
-        🛍️ <span id="cart-count" class="cart-count">0</span>
+        Giỏ hàng <span id="cart-count" class="cart-count">0</span>
       </button>
 
       <button
@@ -73,9 +71,11 @@ const currentPath = Astro.url.pathname;
 <div id="cart-backdrop" class="cart-backdrop"></div>
 
 <style>
-  .active-link { color: var(--gold); }
-  .cart-btn { border:1px solid #ddd;background:#fff;border-radius:20px;padding:.4rem .7rem;font-weight:600;cursor:pointer; }
-  .cart-count { background:var(--gold); border-radius:999px; padding:0 .45rem; margin-left:.3rem; }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+  .brand-text{font-size:1.4rem;font-weight:800;letter-spacing:-0.02em}
+  .header-actions{display:flex;align-items:center;gap:.75rem}
+  .cart-btn{border:1px solid #ddd;background:#fff;border-radius:999px;padding:.45rem .9rem;font-weight:600;cursor:pointer;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+  .cart-count{background:var(--gold);border-radius:999px;padding:0 .45rem;margin-left:.4rem}
   .cart-drawer{position:fixed;top:0;right:-420px;width:400px;max-width:92vw;height:100vh;background:#fff;z-index:200;transition:right .25s ease;box-shadow:-8px 0 30px rgba(0,0,0,.15)}
   .cart-drawer.open{right:0}
   .cart-drawer-inner{display:flex;flex-direction:column;height:100%}
@@ -85,7 +85,7 @@ const currentPath = Astro.url.pathname;
   .mini-cart-footer{padding:1rem;border-top:1px solid #eee}
   .cart-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:190;display:none}
   .cart-backdrop.open{display:block}
-  @media (max-width:768px){ .cart-btn{font-size:.85rem;padding:.3rem .55rem;} }
+  @media (max-width:768px){ .cart-btn{font-size:.72rem;padding:.35rem .6rem;} }
 </style>
 
 <script>

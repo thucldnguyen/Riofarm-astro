@@ -34,6 +34,13 @@ const { posts, showExcerpt = false } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: .75rem;
+    border-radius: 10px;
+    transition: box-shadow .25s;
+  }
+
+  .blog-preview-card:hover {
+    box-shadow: 0 10px 26px rgba(0,0,0,.08);
   }
 
   .blog-preview-image-link {
