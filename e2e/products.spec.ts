@@ -23,7 +23,7 @@ test.describe('Product: Macca', () => {
   });
 
   test('order button is visible', async ({ page }) => {
-    await expect(page.getByText('Đặt hàng ngay').first()).toBeVisible();
+    await expect(page.locator('#buy-now')).toBeVisible();
   });
 
   test('breadcrumbs are visible', async ({ page }) => {
