@@ -6,7 +6,7 @@ export interface Props {
 const { formName = 'contact' } = Astro.props;
 ---
 
-<section class="contact-form-section" style="padding:3rem 0;background:#f9f9f9;">
+<section class="contact-form-section section-pad" style="background:#f9f9f9;">
   <div class="container">
     <div class="glass-box">
       <h4 style="font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;text-align:center;">Thông tin khách hàng</h4>
@@ -85,8 +85,8 @@ const { formName = 'contact' } = Astro.props;
 
 <script>
   // Generate captcha
-  const a = Math.floor(Math.random() * 10);
-  const b = Math.floor(Math.random() * 10);
+  let a = Math.floor(Math.random() * 10);
+  let b = Math.floor(Math.random() * 10);
   const question = document.getElementById('captcha-question');
   if (question) question.textContent = `${a} + ${b} = ?`;
 
@@ -111,9 +111,9 @@ const { formName = 'contact' } = Astro.props;
         form.reset();
         if (successMsg) successMsg.style.display = 'block';
         // Regenerate captcha
-        const newA = Math.floor(Math.random() * 10);
-        const newB = Math.floor(Math.random() * 10);
-        if (question) question.textContent = `${newA} + ${newB} = ?`;
+        a = Math.floor(Math.random() * 10);
+        b = Math.floor(Math.random() * 10);
+        if (question) question.textContent = `${a} + ${b} = ?`;
       })
       .catch((err) => alert(err));
   });

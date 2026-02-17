@@ -35,7 +35,7 @@ const jsonLd = {
   ogImage={product.image}
   jsonLd={jsonLd}
 >
-  <div class="container-large" style="padding-top:2rem;padding-bottom:3rem;">
+  <div class="container-large product-shell">
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <a href="/">Trang chủ</a><span>›</span>
@@ -69,21 +69,21 @@ const jsonLd = {
 
       <!-- Details -->
       <div>
-        <h1 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;" id="product-name">{product.name}</h1>
-        <p style="color:var(--text-secondary);margin-bottom:1rem;">bởi <strong>{product.vendor}</strong></p>
+        <h1 class="product-name" id="product-name">{product.name}</h1>
+        <p class="product-vendor">bởi <strong>{product.vendor}</strong></p>
 
-        <div id="product-price-label" style="font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem;">
+        <div id="product-price-label" class="product-price-label">
           Liên hệ
         </div>
 
-        <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;">{product.description}</p>
+        <p class="product-copy">{product.description}</p>
 
         <div style="margin-bottom:1rem;">
-          <label for="qty" style="font-weight:600;display:block;margin-bottom:.5rem;">Số lượng</label>
-          <input id="qty" type="number" min="1" value="1" style="width:110px;padding:.55rem;border:1px solid #ddd;border-radius:6px;" />
+          <label for="qty" class="product-qty-label">Số lượng</label>
+          <input id="qty" type="number" min="1" value="1" class="product-qty-input" />
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div class="product-actions">
           <button id="add-to-cart" class="btn-secondary" style="width:100%;">Thêm vào giỏ</button>
           <button id="buy-now" class="btn-primary" style="width:100%;">Mua ngay</button>
         </div>

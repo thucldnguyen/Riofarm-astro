@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Thanh toán | Rio Farm" description="Thanh toán đơn hàng Rio Farm" canonical="https://riofarm.vn/checkout">
   <section class="container" style="padding:2rem 1.5rem 4rem;max-width:980px;">
-    <h1 style="font-size:2rem;font-weight:800;margin-bottom:1rem;">Thanh toán</h1>
+    <h1 class="product-name" style="margin-bottom:1rem;">Thanh toán</h1>
     <div class="split-section" style="padding-top:0;">
       <div>
         <form id="checkout-form" class="glass-box" style="padding:1.5rem;max-width:100%;">
@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </form>
       </div>
       <div>
-        <div style="border:1px solid #eee;border-radius:10px;padding:1rem;">
+        <div class="surface-card" style="padding:1rem;">
           <h3 style="margin-bottom:.75rem;">Đơn hàng</h3>
           <div id="checkout-items"></div>
           <hr style="margin:.8rem 0;border:none;border-top:1px solid #eee;" />
