@@ -11,7 +11,7 @@ test.describe('Cart & Checkout flow', () => {
     await page.goto('/cart');
     await expect(page.locator('main section h1').first()).toContainText('Giỏ hàng');
     await expect(page.getByRole('heading', { name: 'Hạt macadamia sấy cao cấp' })).toBeVisible();
-    await expect(page.locator('#cart-total')).toContainText('240.000');
+    await expect(page.locator('#cart-total')).toContainText('Liên hệ');
 
     await page.locator('#checkout-btn').click();
     await expect(page).toHaveURL(/\/checkout/);

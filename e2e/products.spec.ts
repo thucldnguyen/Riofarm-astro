@@ -18,8 +18,8 @@ test.describe('Product: Macca', () => {
     await expect(img).toBeVisible();
   });
 
-  test('price is displayed', async ({ page }) => {
-    await expect(page.getByText('120.000')).toBeVisible();
+  test('contact label is displayed instead of fixed price', async ({ page }) => {
+    await expect(page.locator('#product-price-label')).toContainText('Liên hệ');
   });
 
   test('order button is visible', async ({ page }) => {

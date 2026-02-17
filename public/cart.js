@@ -55,7 +55,7 @@ window.RioCart = {
     writeCart([]);
     return [];
   },
-  formatPrice(value) {
-    return `${Number(value).toLocaleString('vi-VN')} ₫`;
+  formatPrice() {
+    return 'Liên hệ';
   }
 };
