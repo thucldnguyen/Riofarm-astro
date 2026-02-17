@@ -9,8 +9,8 @@ test.describe('Cart & Checkout flow', () => {
     await expect(page.locator('#cart-feedback')).toContainText('Đã thêm 2 sản phẩm');
 
     await page.goto('/cart');
-    await expect(page.locator('h1')).toContainText('Giỏ hàng');
-    await expect(page.getByText('Hạt macadamia sấy cao cấp')).toBeVisible();
+    await expect(page.locator('main section h1').first()).toContainText('Giỏ hàng');
+    await expect(page.getByRole('heading', { name: 'Hạt macadamia sấy cao cấp' })).toBeVisible();
     await expect(page.locator('#cart-total')).toContainText('240.000');
 
     await page.locator('#checkout-btn').click();

@@ -97,26 +97,25 @@ const jsonLd = {
         <img src="/products/hat_mix.jpg" alt="Hạt mix Rio Farm" style="max-width:400px;width:100%;border-radius:8px;" loading="lazy" />
       </div>
     </div>
+    <script type="application/json" id="product-json" set:html={JSON.stringify(product)}></script>
+    <script>
+      const dataEl = document.getElementById('product-json');
+      const addBtn = document.getElementById('add-to-cart');
+      const buyNowBtn = document.getElementById('buy-now');
+      const qtyEl = document.getElementById('qty');
+      const feedback = document.getElementById('cart-feedback');
+      const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
+
+      function addToCart(redirectToCheckout = false) {
+        if (!window.RioCart || !productData) return;
+        const qty = Math.max(1, Number(qtyEl?.value || 1));
+        window.RioCart.addToCart(productData, qty);
+        if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
+        if (redirectToCheckout) window.location.href = '/checkout';
+      }
+
+      addBtn?.addEventListener('click', () => addToCart(false));
+      buyNowBtn?.addEventListener('click', () => addToCart(true));
+    </script>
   </div>
 </BaseLayout>
-
-<script type="application/json" id="product-json">{JSON.stringify(product)}</script>
-<script>
-  const dataEl = document.getElementById('product-json');
-  const addBtn = document.getElementById('add-to-cart');
-  const buyNowBtn = document.getElementById('buy-now');
-  const qtyEl = document.getElementById('qty');
-  const feedback = document.getElementById('cart-feedback');
-  const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
-
-  function addToCart(redirectToCheckout = false) {
-    if (!window.RioCart || !productData) return;
-    const qty = Math.max(1, Number(qtyEl?.value || 1));
-    window.RioCart.addToCart(productData, qty);
-    if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
-    if (redirectToCheckout) window.location.href = '/checkout';
-  }
-
-  addBtn?.addEventListener('click', () => addToCart(false));
-  buyNowBtn?.addEventListener('click', () => addToCart(true));
-</script>

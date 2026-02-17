@@ -164,37 +164,36 @@ const jsonLd = {
         <img src="/coso3.jpeg" alt="Cơ sở sản xuất Rio Macca 3" style="border-radius:8px;width:100%;aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
       </div>
     </div>
+    <script type="application/json" id="product-json" set:html={JSON.stringify(product)}></script>
+    <script>
+      document.querySelectorAll('.gallery-thumb').forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const mainImg = document.getElementById('main-product-img');
+          const thumbImg = thumb;
+          if (mainImg && thumbImg) {
+            mainImg.src = thumbImg.src;
+            mainImg.alt = thumbImg.alt;
+          }
+        });
+      });
+
+      const dataEl = document.getElementById('product-json');
+      const addBtn = document.getElementById('add-to-cart');
+      const buyNowBtn = document.getElementById('buy-now');
+      const qtyEl = document.getElementById('qty');
+      const feedback = document.getElementById('cart-feedback');
+      const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
+
+      function addToCart(redirectToCheckout = false) {
+        if (!window.RioCart || !productData) return;
+        const qty = Math.max(1, Number(qtyEl?.value || 1));
+        window.RioCart.addToCart(productData, qty);
+        if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
+        if (redirectToCheckout) window.location.href = '/checkout';
+      }
+
+      addBtn?.addEventListener('click', () => addToCart(false));
+      buyNowBtn?.addEventListener('click', () => addToCart(true));
+    </script>
   </div>
 </BaseLayout>
-
-<script type="application/json" id="product-json">{JSON.stringify(product)}</script>
-<script>
-  document.querySelectorAll('.gallery-thumb').forEach((thumb) => {
-    thumb.addEventListener('click', () => {
-      const mainImg = document.getElementById('main-product-img');
-      const thumbImg = thumb;
-      if (mainImg && thumbImg) {
-        mainImg.src = thumbImg.src;
-        mainImg.alt = thumbImg.alt;
-      }
-    });
-  });
-
-  const dataEl = document.getElementById('product-json');
-  const addBtn = document.getElementById('add-to-cart');
-  const buyNowBtn = document.getElementById('buy-now');
-  const qtyEl = document.getElementById('qty');
-  const feedback = document.getElementById('cart-feedback');
-  const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
-
-  function addToCart(redirectToCheckout = false) {
-    if (!window.RioCart || !productData) return;
-    const qty = Math.max(1, Number(qtyEl?.value || 1));
-    window.RioCart.addToCart(productData, qty);
-    if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
-    if (redirectToCheckout) window.location.href = '/checkout';
-  }
-
-  addBtn?.addEventListener('click', () => addToCart(false));
-  buyNowBtn?.addEventListener('click', () => addToCart(true));
-</script>
