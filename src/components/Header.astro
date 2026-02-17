@@ -9,15 +9,13 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="header-glass" id="main-header">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;">
-    <!-- Logo / Brand -->
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem;">
     <a href="/" class="brand" aria-label="Rio Farm - Trang chủ">
       <span style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">
         <span style="color:var(--gold);">Rio</span> Farm
       </span>
     </a>
 
-    <!-- Desktop Nav -->
     <nav class="desktop-nav" aria-label="Main navigation" role="navigation">
       {navLinks.map((link) => (
         <a
@@ -29,50 +27,120 @@ const currentPath = Astro.url.pathname;
       ))}
     </nav>
 
-    <!-- Mobile Hamburger -->
-    <button
-      class="hamburger"
-      id="hamburger-btn"
-      aria-label="Mở menu điều hướng"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="cart-btn" id="cart-toggle" aria-label="Mở giỏ hàng">
+        🛍️ <span id="cart-count" class="cart-count">0</span>
+      </button>
+
+      <button
+        class="hamburger"
+        id="hamburger-btn"
+        aria-label="Mở menu điều hướng"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 
-  <!-- Mobile Nav Overlay -->
   <nav id="mobile-menu" class="mobile-nav-overlay" aria-label="Mobile navigation" role="navigation">
     {navLinks.map((link) => (
-      <a href={link.href} class="mobile-nav-link">
-        {link.label}
-      </a>
+      <a href={link.href} class="mobile-nav-link">{link.label}</a>
     ))}
+    <a href="/cart" class="mobile-nav-link">Giỏ hàng</a>
   </nav>
 </header>
 
+<div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-drawer-inner">
+    <div class="cart-drawer-head">
+      <h3>Giỏ hàng của tôi</h3>
+      <button id="cart-close" aria-label="Đóng">✕</button>
+    </div>
+    <div id="mini-cart-items" class="mini-cart-items"></div>
+    <div class="mini-cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:.5rem;">
+        <strong>Tổng:</strong><strong id="mini-cart-total">0 ₫</strong>
+      </div>
+      <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:.75rem;">Phí vận chuyển sẽ được tính khi thanh toán</p>
+      <a href="/cart" class="btn-primary" style="display:block;">Thanh toán</a>
+    </div>
+  </div>
+</div>
+<div id="cart-backdrop" class="cart-backdrop"></div>
+
 <style>
-  .active-link {
-    color: var(--gold);
-  }
+  .active-link { color: var(--gold); }
+  .cart-btn { border:1px solid #ddd;background:#fff;border-radius:20px;padding:.4rem .7rem;font-weight:600;cursor:pointer; }
+  .cart-count { background:var(--gold); border-radius:999px; padding:0 .45rem; margin-left:.3rem; }
+  .cart-drawer{position:fixed;top:0;right:-420px;width:400px;max-width:92vw;height:100vh;background:#fff;z-index:200;transition:right .25s ease;box-shadow:-8px 0 30px rgba(0,0,0,.15)}
+  .cart-drawer.open{right:0}
+  .cart-drawer-inner{display:flex;flex-direction:column;height:100%}
+  .cart-drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:1px solid #eee}
+  .mini-cart-items{flex:1;overflow:auto;padding:1rem}
+  .mini-cart-row{display:grid;grid-template-columns:64px 1fr auto;gap:.75rem;align-items:center;padding:.5rem 0;border-bottom:1px solid #f1f1f1}
+  .mini-cart-footer{padding:1rem;border-top:1px solid #eee}
+  .cart-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:190;display:none}
+  .cart-backdrop.open{display:block}
+  @media (max-width:768px){ .cart-btn{font-size:.85rem;padding:.3rem .55rem;} }
 </style>
 
 <script>
   const btn = document.getElementById('hamburger-btn');
   const menu = document.getElementById('mobile-menu');
+  const cartToggle = document.getElementById('cart-toggle');
+  const cartClose = document.getElementById('cart-close');
+  const cartDrawer = document.getElementById('cart-drawer');
+  const cartBackdrop = document.getElementById('cart-backdrop');
 
   btn?.addEventListener('click', () => {
     const isOpen = menu?.classList.toggle('open');
     btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Close mobile menu on nav link click
   menu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       menu.classList.remove('open');
       btn?.setAttribute('aria-expanded', 'false');
     });
   });
+
+  function renderMiniCart() {
+    if (!window.RioCart) return;
+    const items = window.RioCart.getCart();
+    const { cartCount, cartTotal } = window.RioCart.getSummary();
+    const countEl = document.getElementById('cart-count');
+    const itemsEl = document.getElementById('mini-cart-items');
+    const totalEl = document.getElementById('mini-cart-total');
+    if (countEl) countEl.textContent = String(cartCount);
+    if (totalEl) totalEl.textContent = window.RioCart.formatPrice(cartTotal);
+    if (!itemsEl) return;
+
+    if (!items.length) {
+      itemsEl.innerHTML = '<p style="color:var(--text-secondary)">Giỏ hàng đang trống</p>';
+      return;
+    }
+
+    itemsEl.innerHTML = items.map((item) => `
+      <div class="mini-cart-row">
+        <img src="${item.image}" alt="${item.name}" style="width:64px;height:64px;object-fit:cover;border-radius:6px;" />
+        <div>
+          <div style="font-weight:600;line-height:1.3">${item.name}</div>
+          <div style="font-size:.85rem;color:var(--text-secondary)">SL: ${item.quantity}</div>
+        </div>
+        <div style="font-weight:700">${window.RioCart.formatPrice(Number(item.price) * item.quantity)}</div>
+      </div>
+    `).join('');
+  }
+
+  function openCart(){ cartDrawer?.classList.add('open'); cartBackdrop?.classList.add('open'); }
+  function closeCart(){ cartDrawer?.classList.remove('open'); cartBackdrop?.classList.remove('open'); }
+  cartToggle?.addEventListener('click', () => { renderMiniCart(); openCart(); });
+  cartClose?.addEventListener('click', closeCart);
+  cartBackdrop?.addEventListener('click', closeCart);
+  window.addEventListener('cart:updated', renderMiniCart);
+  window.addEventListener('DOMContentLoaded', renderMiniCart);
 </script>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Giỏ hàng | Rio Farm" description="Giỏ hàng sản phẩm Rio Farm" canonical="https://riofarm.vn/cart">
+  <section class="container" style="padding:2rem 1.5rem 4rem;max-width:980px;">
+    <h1 style="font-size:2rem;font-weight:800;margin-bottom:1rem;">Giỏ hàng</h1>
+    <div id="cart-list"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem;flex-wrap:wrap;">
+      <a href="/" class="btn-secondary">Tiếp tục mua sắm</a>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <strong id="cart-total">Tổng: 0 ₫</strong>
+        <a href="/checkout" class="btn-primary" id="checkout-btn">Thanh toán</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const listEl = document.getElementById('cart-list');
+  const totalEl = document.getElementById('cart-total');
+  const checkoutBtn = document.getElementById('checkout-btn');
+
+  function renderCartPage() {
+    if (!window.RioCart || !listEl || !totalEl) return;
+    const items = window.RioCart.getCart();
+    const { cartTotal } = window.RioCart.getSummary();
+    totalEl.textContent = `Tổng: ${window.RioCart.formatPrice(cartTotal)}`;
+    if (checkoutBtn) checkoutBtn.style.pointerEvents = items.length ? 'auto' : 'none';
+    if (checkoutBtn) checkoutBtn.style.opacity = items.length ? '1' : '.5';
+
+    if (!items.length) {
+      listEl.innerHTML = '<p style="color:var(--text-secondary)">Giỏ hàng đang trống</p>';
+      return;
+    }
+
+    listEl.innerHTML = items.map((item) => `
+      <div style="display:grid;grid-template-columns:90px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid #eee;">
+        <img src="${item.image}" alt="${item.name}" style="width:90px;height:90px;object-fit:cover;border-radius:8px;"/>
+        <div>
+          <h3 style="font-size:1rem;font-weight:700;">${item.name}</h3>
+          <p style="color:var(--text-secondary);margin:.25rem 0 .5rem;">${window.RioCart.formatPrice(item.price)}</p>
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <label>SL</label>
+            <input data-qty="${item.productCode}" type="number" min="1" value="${item.quantity}" style="width:75px;padding:.35rem;border:1px solid #ddd;border-radius:6px;" />
+            <button data-remove="${item.productCode}" class="btn-secondary" style="padding:.35rem .7rem;">Xóa</button>
+          </div>
+        </div>
+        <strong>${window.RioCart.formatPrice(Number(item.price) * item.quantity)}</strong>
+      </div>
+    `).join('');
+
+    listEl.querySelectorAll('[data-qty]').forEach((input) => {
+      input.addEventListener('change', (e) => {
+        const code = e.target.getAttribute('data-qty');
+        window.RioCart.updateQuantity(code, e.target.value);
+      });
+    });
+
+    listEl.querySelectorAll('[data-remove]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const code = e.target.getAttribute('data-remove');
+        window.RioCart.removeFromCart(code);
+      });
+    });
+  }
+
+  window.addEventListener('cart:updated', renderCartPage);
+  window.addEventListener('DOMContentLoaded', renderCartPage);
+</script>

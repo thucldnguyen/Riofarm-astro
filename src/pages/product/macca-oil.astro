@@ -57,12 +57,15 @@ const jsonLd = {
 
         <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;">{product.description}</p>
 
-        <a href="/contact-us" class="btn-primary" style="display:inline-block;width:100%;text-align:center;font-size:1.1rem;padding:1rem;">
-          Đặt hàng ngay
-        </a>
-        <p style="font-size:0.85rem;color:var(--text-secondary);text-align:center;margin-top:0.75rem;">
-          Liên hệ qua SĐT: <a href="tel:0977742047" style="color:var(--gold);font-weight:600;">0977742047</a>
-        </p>
+        <div style="margin-bottom:1rem;">
+          <label for="qty" style="font-weight:600;display:block;margin-bottom:.5rem;">Số lượng</label>
+          <input id="qty" type="number" min="1" value="1" style="width:110px;padding:.55rem;border:1px solid #ddd;border-radius:6px;" />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+          <button id="add-to-cart" class="btn-secondary" style="width:100%;">Thêm vào giỏ</button>
+          <button id="buy-now" class="btn-primary" style="width:100%;">Mua ngay</button>
+        </div>
+        <p id="cart-feedback" style="font-size:0.9rem;color:var(--gold-dark);margin-top:0.75rem;"></p>
       </div>
     </div>
 
@@ -92,3 +95,24 @@ const jsonLd = {
     </div>
   </div>
 </BaseLayout>
+
+<script type="application/json" id="product-json">{JSON.stringify(product)}</script>
+<script>
+  const dataEl = document.getElementById('product-json');
+  const addBtn = document.getElementById('add-to-cart');
+  const buyNowBtn = document.getElementById('buy-now');
+  const qtyEl = document.getElementById('qty');
+  const feedback = document.getElementById('cart-feedback');
+  const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
+
+  function addToCart(redirectToCheckout = false) {
+    if (!window.RioCart || !productData) return;
+    const qty = Math.max(1, Number(qtyEl?.value || 1));
+    window.RioCart.addToCart(productData, qty);
+    if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
+    if (redirectToCheckout) window.location.href = '/checkout';
+  }
+
+  addBtn?.addEventListener('click', () => addToCart(false));
+  buyNowBtn?.addEventListener('click', () => addToCart(true));
+</script>

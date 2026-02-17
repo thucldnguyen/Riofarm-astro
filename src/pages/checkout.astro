@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Thanh toán | Rio Farm" description="Thanh toán đơn hàng Rio Farm" canonical="https://riofarm.vn/checkout">
+  <section class="container" style="padding:2rem 1.5rem 4rem;max-width:980px;">
+    <h1 style="font-size:2rem;font-weight:800;margin-bottom:1rem;">Thanh toán</h1>
+    <div class="split-section" style="padding-top:0;">
+      <div>
+        <form id="checkout-form" class="glass-box" style="padding:1.5rem;max-width:100%;">
+          <div class="form-group"><label class="form-label">Họ tên</label><input class="form-input" required /></div>
+          <div class="form-group"><label class="form-label">Số điện thoại</label><input class="form-input" required /></div>
+          <div class="form-group"><label class="form-label">Địa chỉ nhận hàng</label><textarea class="form-input" rows="3" required></textarea></div>
+          <div class="form-group"><label class="form-label">Ghi chú</label><textarea class="form-input" rows="2"></textarea></div>
+          <button class="btn-primary" style="width:100%;">Xác nhận đặt hàng</button>
+        </form>
+      </div>
+      <div>
+        <div style="border:1px solid #eee;border-radius:10px;padding:1rem;">
+          <h3 style="margin-bottom:.75rem;">Đơn hàng</h3>
+          <div id="checkout-items"></div>
+          <hr style="margin:.8rem 0;border:none;border-top:1px solid #eee;" />
+          <div style="display:flex;justify-content:space-between;"><strong>Tổng cộng</strong><strong id="checkout-total">0 ₫</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const itemsEl = document.getElementById('checkout-items');
+  const totalEl = document.getElementById('checkout-total');
+  const formEl = document.getElementById('checkout-form');
+
+  function renderCheckout() {
+    if (!window.RioCart || !itemsEl || !totalEl) return;
+    const items = window.RioCart.getCart();
+    const { cartTotal } = window.RioCart.getSummary();
+    if (!items.length) {
+      itemsEl.innerHTML = '<p style="color:var(--text-secondary)">Giỏ hàng trống. <a href="/" style="color:var(--gold)">Mua sắm ngay</a></p>';
+      totalEl.textContent = window.RioCart.formatPrice(0);
+      return;
+    }
+
+    itemsEl.innerHTML = items.map((i) => `<div style="display:flex;justify-content:space-between;margin:.4rem 0;"><span>${i.name} × ${i.quantity}</span><span>${window.RioCart.formatPrice(Number(i.price) * i.quantity)}</span></div>`).join('');
+    totalEl.textContent = window.RioCart.formatPrice(cartTotal);
+  }
+
+  formEl?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!window.RioCart) return;
+    if (!window.RioCart.getCart().length) return;
+    alert('Cảm ơn bạn! Đơn hàng đã được ghi nhận. Rio Farm sẽ liên hệ sớm nhất.');
+    window.RioCart.clearCart();
+    window.location.href = '/';
+  });
+
+  window.addEventListener('cart:updated', renderCheckout);
+  window.addEventListener('DOMContentLoaded', renderCheckout);
+</script>
