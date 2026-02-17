@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+async function isMobileViewport(page: import('@playwright/test').Page) {
+  const viewport = page.viewportSize();
+  return !!viewport && viewport.width <= 768;
+}
+
 test.describe('Contact Page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/contact-us');
@@ -88,14 +93,28 @@ test.describe('Custom 404 Page Direct', () => {
 test.describe('Navigation', () => {
   test('clicking Blog nav navigates to /blog', async ({ page }) => {
     await page.goto('/');
-    const blogLink = page.locator('header .desktop-nav a[href="/blog"]');
+    const blogLink = (await isMobileViewport(page))
+      ? page.locator('#mobile-menu a[href="/blog"]')
+      : page.locator('header .desktop-nav a[href="/blog"]');
+
+    if (await isMobileViewport(page)) {
+      await page.locator('#hamburger-btn').click();
+    }
+
     await blogLink.click();
     await expect(page).toHaveURL(/\/blog$/);
   });
 
   test('clicking Liên Hệ navigates to /contact-us', async ({ page }) => {
     await page.goto('/');
-    const contactLink = page.locator('header .desktop-nav a[href="/contact-us"]');
+    const contactLink = (await isMobileViewport(page))
+      ? page.locator('#mobile-menu a[href="/contact-us"]')
+      : page.locator('header .desktop-nav a[href="/contact-us"]');
+
+    if (await isMobileViewport(page)) {
+      await page.locator('#hamburger-btn').click();
+    }
+
     await contactLink.click();
     await expect(page).toHaveURL(/\/contact-us/);
   });

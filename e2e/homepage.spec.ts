@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+async function isMobileViewport(page: import('@playwright/test').Page) {
+  const viewport = page.viewportSize();
+  return !!viewport && viewport.width <= 768;
+}
+
 test.describe('Homepage', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -15,15 +20,25 @@ test.describe('Homepage', () => {
   });
 
   test('navigation has correct links', async ({ page }) => {
-    const nav = page.locator('header nav').first();
+    if (await isMobileViewport(page)) {
+      await page.locator('#hamburger-btn').click();
+      const mobileNav = page.locator('#mobile-menu');
+      await expect(mobileNav.getByRole('link', { name: 'Sản Phẩm' })).toBeVisible();
+      await expect(mobileNav.getByRole('link', { name: 'Blog' })).toBeVisible();
+      await expect(mobileNav.getByRole('link', { name: 'Liên Hệ' })).toBeVisible();
+      return;
+    }
+
+    const nav = page.locator('header .desktop-nav');
     await expect(nav.getByRole('link', { name: 'Sản Phẩm' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Blog' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Liên Hệ' })).toBeVisible();
   });
 
   test('products section is visible', async ({ page }) => {
-    await expect(page.getByText('Sản Phẩm').first()).toBeVisible();
-    await expect(page.locator('.product-collection-grid')).toBeVisible();
+    const grid = page.locator('.product-collection-grid');
+    await grid.scrollIntoViewIfNeeded();
+    await expect(grid).toBeVisible();
   });
 
   test('blog preview section is visible', async ({ page }) => {
