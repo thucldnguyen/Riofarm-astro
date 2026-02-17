@@ -7,6 +7,10 @@
   --text-primary: #1a1a1a;
   --text-secondary: #555;
   --bg-white: #fff;
+  --bg-base: #fcfaf6;
+  --blob-1: rgba(245, 197, 24, 0.28);
+  --blob-2: rgba(255, 226, 126, 0.22);
+  --blob-3: rgba(245, 197, 24, 0.16);
   --header-bg: rgba(255, 255, 255, 0.85);
   --header-blur: blur(12px);
   --surface: #faf9f7;
@@ -23,12 +27,86 @@ html {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
+  background: var(--bg-base);
 }
 
 body {
   color: var(--text-primary);
-  background-color: var(--bg-white);
+  background: transparent;
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after,
+html::before {
+  content: '';
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: -1;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+body::before {
+  width: 46vw;
+  height: 46vw;
+  min-width: 260px;
+  min-height: 260px;
+  max-width: 620px;
+  max-height: 620px;
+  left: -10vw;
+  top: -6vh;
+  background: radial-gradient(circle at 30% 30%, var(--blob-1), transparent 65%);
+  animation-name: blobFloatA;
+  animation-duration: 14s;
+}
+
+body::after {
+  width: 38vw;
+  height: 38vw;
+  min-width: 220px;
+  min-height: 220px;
+  max-width: 520px;
+  max-height: 520px;
+  right: -8vw;
+  top: 32vh;
+  background: radial-gradient(circle at 50% 50%, var(--blob-2), transparent 68%);
+  animation-name: blobFloatB;
+  animation-duration: 17s;
+}
+
+html::before {
+  width: 42vw;
+  height: 42vw;
+  min-width: 240px;
+  min-height: 240px;
+  max-width: 560px;
+  max-height: 560px;
+  left: 28vw;
+  bottom: -18vh;
+  background: radial-gradient(circle at 50% 50%, var(--blob-3), transparent 70%);
+  animation-name: blobFloatC;
+  animation-duration: 20s;
+}
+
+@keyframes blobFloatA {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(6vw, 5vh, 0) scale(1.08); }
+}
+
+@keyframes blobFloatB {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-7vw, -6vh, 0) scale(1.06); }
+}
+
+@keyframes blobFloatC {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(4vw, -5vh, 0) scale(1.1); }
 }
 
 h1, h2, h3, h4, h5, h6, .heading {
