@@ -1,0 +1,58 @@
+---
+const attributes = [
+  {
+    icon: '🌿',
+    title: 'Tự nhiên 100%',
+    description: 'Hạt macadamia được trồng và thu hoạch tự nhiên tại vườn Lâm Hà.',
+  },
+  {
+    icon: '✅',
+    title: 'Đạt chuẩn VSATP',
+    description: 'Cơ sở sản xuất được cấp chứng nhận vệ sinh an toàn thực phẩm.',
+  },
+  {
+    icon: '🚚',
+    title: 'Ship toàn quốc',
+    description: 'Giao hàng nhanh chóng đến tận cửa trên toàn quốc.',
+  },
+  {
+    icon: '🏷️',
+    title: 'Giá tốt nhất',
+    description: 'Mua trực tiếp từ trang trại, không qua trung gian.',
+  },
+];
+---
+
+<div class="attribute-grid">
+  {attributes.map((attr) => (
+    <div class="attribute-item">
+      <div class="attribute-icon">{attr.icon}</div>
+      <h5 class="attribute-title">{attr.title}</h5>
+      <p class="attribute-desc">{attr.description}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .attribute-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .attribute-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .attribute-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .attribute-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+</style>

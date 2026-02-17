@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProductByCode } from '../../data/products';
+
+const product = getProductByCode('mix-nuts')!;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  image: `https://riofarm.vn${product.image}`,
+  description: product.description,
+  brand: { '@type': 'Brand', name: 'Rio Farm' },
+  offers: {
+    '@type': 'Offer',
+    price: product.price,
+    priceCurrency: 'VND',
+    availability: 'https://schema.org/InStock',
+    seller: { '@type': 'Organization', name: 'Rio Farm' },
+  },
+};
+---
+
+<BaseLayout
+  title="Hạt Mix | Rio Farm"
+  description="Hỗn hợp hạt dinh dưỡng Rio Farm - Kết hợp macadamia và các loại hạt khác, giàu dinh dưỡng và thơm ngon."
+  canonical="https://riofarm.vn/product/mix-nuts"
+  ogType="product"
+  ogImage={product.image}
+  jsonLd={jsonLd}
+>
+  <div class="container-large" style="padding-top:2rem;padding-bottom:3rem;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <span id="product-name">{product.name}</span>
+    </nav>
+
+    <div class="product-content">
+      <!-- Gallery -->
+      <div>
+        <img
+          src={product.gallery[0].image}
+          alt={product.gallery[0].alt}
+          style="width:100%;border-radius:12px;aspect-ratio:4/3;object-fit:cover;"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Details -->
+      <div>
+        <h1 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">{product.name}</h1>
+        <p style="color:var(--text-secondary);margin-bottom:1rem;">bởi <strong>{product.vendor}</strong></p>
+
+        <div style="font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem;">
+          {Number(product.price).toLocaleString('vi-VN')} ₫
+        </div>
+
+        <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;">{product.description}</p>
+
+        <a href="/contact-us" class="btn-primary" style="display:inline-block;width:100%;text-align:center;font-size:1.1rem;padding:1rem;">
+          Đặt hàng ngay
+        </a>
+        <p style="font-size:0.85rem;color:var(--text-secondary);text-align:center;margin-top:0.75rem;">
+          Liên hệ qua SĐT: <a href="tel:0977742047" style="color:var(--gold);font-weight:600;">0977742047</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-content" style="max-width:860px;margin:3rem auto 0;">
+      <h2>Hạt Mix Rio Farm - Đa dạng dinh dưỡng</h2>
+      <p>
+        Hỗn hợp hạt dinh dưỡng của Rio Farm bao gồm macadamia và các loại hạt tự nhiên khác được tuyển chọn kỹ càng.
+        Mỗi loại hạt mang đến một hương vị và giá trị dinh dưỡng độc đáo.
+      </p>
+
+      <h2>Thành phần</h2>
+      <ul style="list-style-type:circle;margin-left:1.2rem;">
+        <li>Hạt macadamia sấy - giàu omega, béo bùi</li>
+        <li>Hạt điều - giàu protein và chất béo tốt</li>
+        <li>Hạt óc chó - giàu omega-3, tốt cho não</li>
+        <li>Hạnh nhân - giàu vitamin E và magie</li>
+      </ul>
+
+      <h2>Lợi ích sức khỏe</h2>
+      <ul style="list-style-type:circle;margin-left:1.2rem;">
+        <li>Cung cấp năng lượng bền vững</li>
+        <li>Hỗ trợ sức khỏe tim mạch</li>
+        <li>Giàu chất chống oxy hóa</li>
+        <li>Tốt cho hệ thần kinh và não bộ</li>
+        <li>Phù hợp làm snack lành mạnh</li>
+      </ul>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img src="/products/hat_mix.jpg" alt="Hạt mix Rio Farm" style="max-width:400px;width:100%;border-radius:8px;" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+const navLinks = [
+  { label: 'Sản Phẩm', href: '/' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Liên Hệ', href: '/contact-us' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header-glass" id="main-header">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;">
+    <!-- Logo / Brand -->
+    <a href="/" class="brand" aria-label="Rio Farm - Trang chủ">
+      <span style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">
+        <span style="color:var(--gold);">Rio</span> Farm
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="desktop-nav" aria-label="Main navigation" role="navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`nav-link${currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) ? ' active-link' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button
+      class="hamburger"
+      id="hamburger-btn"
+      aria-label="Mở menu điều hướng"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Nav Overlay -->
+  <nav id="mobile-menu" class="mobile-nav-overlay" aria-label="Mobile navigation" role="navigation">
+    {navLinks.map((link) => (
+      <a href={link.href} class="mobile-nav-link">
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .active-link {
+    color: var(--gold);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close mobile menu on nav link click
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

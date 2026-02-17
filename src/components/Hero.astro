@@ -1,0 +1,45 @@
+---
+export interface Props {
+  image: string;
+  imageAlt?: string;
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  maxWidth?: string;
+  minHeight?: string;
+  priority?: boolean;
+}
+
+const {
+  image,
+  imageAlt = '',
+  title,
+  subtitle,
+  ctaText,
+  ctaHref,
+  maxWidth = '600px',
+  minHeight = '500px',
+  priority = false,
+} = Astro.props;
+---
+
+<section class="hero-root" style={`min-height:${minHeight};`}>
+  <img
+    src={image}
+    alt={imageAlt}
+    class="hero-image"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : undefined}
+  />
+  <div class="hero-overlay"></div>
+  {(title || subtitle || ctaText) && (
+    <div class="hero-content" style={`max-width:${maxWidth};`}>
+      {title && <h1 class="hero-title">{title}</h1>}
+      {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+      {ctaText && ctaHref && (
+        <a href={ctaHref} class="btn-primary">{ctaText}</a>
+      )}
+    </div>
+  )}
+</section>

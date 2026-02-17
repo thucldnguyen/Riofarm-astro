@@ -1,0 +1,68 @@
+---
+const currentYear = new Date().getFullYear();
+
+const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.8041489407865!2d108.1795899743631!3d11.708279741316327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715bbfbfaa993f%3A0xc88d819f06a65760!2sRio%20macca!5e0!3m2!1sen!2s!4v1701957242833!5m2!1sen!2s";
+---
+
+<footer class="footer-root">
+  <div class="container" style="padding-top:2.5rem;padding-bottom:2rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+      <!-- Contact info -->
+      <div>
+        <h6 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--gold);">Liên hệ:</h6>
+        <ul style="list-style:circle;margin-left:1.2rem;line-height:2;">
+          <li>Hộ kinh doanh: RIO MACCA</li>
+          <li>Địa chỉ: Thôn Đoàn Kết, xã Đan Phượng, huyện Lâm Hà, tỉnh Lâm Đồng</li>
+          <li>Số điện thoại: <a href="tel:0977742047" style="color:var(--gold);">0977742047</a></li>
+          <li>Người đại diện: Nguyễn Thị Ánh</li>
+          <li>Năm thành lập: 2021</li>
+        </ul>
+
+        <!-- Social icons -->
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <a href="https://www.facebook.com/MaccaRIO2019" target="_blank" rel="noopener noreferrer" aria-label="Facebook Rio Macca" style="color:var(--gold);font-size:1.5rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078V12.07h3.047V9.428c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="mailto:riomacca@gmail.com" aria-label="Email Rio Macca" style="color:var(--gold);font-size:1.5rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="tel:0977742047" aria-label="Gọi điện Rio Macca" style="color:var(--gold);font-size:1.5rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.24 1.01L6.62 10.79z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div>
+        <iframe
+          src={mapSrc}
+          width="100%"
+          height="250"
+          style="border:0;border-radius:12px;"
+          allowfullscreen={true}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bản đồ Rio Macca Lâm Hà"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid #333;padding:1rem 0;text-align:center;color:#aaa;font-size:0.85rem;">
+    <div class="container">
+      <span>
+        {currentYear} © Rio Farm. Built by{' '}
+        <a href="https://www.thucldnguyen.com" target="_blank" rel="noopener" style="color:var(--gold);">Thuc Nguyen & Hao Nguyen</a>.{' '}
+        Powered by <a href="https://netlify.com" target="_blank" rel="noopener" style="color:var(--gold);">Netlify</a>.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

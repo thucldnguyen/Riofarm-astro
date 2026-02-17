@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import BlogPreviewGrid from '../../components/BlogPreviewGrid.astro';
+import { blogPosts } from '../../data/blog';
+---
+
+<BaseLayout
+  title="Blog Rio Macca | Tin tức & Kiến thức về macadamia"
+  description="Đọc các bài viết mới nhất về hạt macadamia, cơ sở sản xuất Rio Macca, và những câu chuyện từ nông trại Lâm Hà."
+  canonical="https://riofarm.vn/blog"
+  ogImage="/healthyfood.jpeg"
+  noPaddingBottom={true}
+>
+  <!-- Hero -->
+  <Hero
+    image="/healthyfood.jpeg"
+    imageAlt="Blog Rio Macca - Thực phẩm lành mạnh"
+    title="Blog nhà Rio Macca"
+    subtitle="Câu chuyện & Kiến thức từ nông trại Lâm Hà"
+    ctaText="Đọc ngay"
+    ctaHref="/blog/tai-sao-chon-rio-macca"
+    priority={true}
+    minHeight="400px"
+  />
+
+  <!-- Blog Grid -->
+  <section style="padding:3rem 0;">
+    <div class="container-large">
+      <BlogPreviewGrid posts={blogPosts} showExcerpt={true} />
+    </div>
+  </section>
+</BaseLayout>

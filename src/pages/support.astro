@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hỗ Trợ Khách Hàng | Rio Farm"
+  description="Tìm kiếm thông tin hỗ trợ, chính sách vận chuyển, đổi trả hàng và các câu hỏi thường gặp của Rio Farm."
+  canonical="https://riofarm.vn/support"
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:4rem;max-width:800px;">
+    <h1 style="font-size:2rem;font-weight:800;margin-bottom:2rem;">Hỗ Trợ Khách Hàng</h1>
+
+    <!-- FAQ Accordion -->
+    <section aria-label="Câu hỏi thường gặp">
+      <div class="accordion" id="shipping-section">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+          <span>Chính sách vận chuyển</span>
+          <span>+</span>
+        </div>
+        <div class="accordion-body" id="shipping-body" style="display:none;">
+          <p>Rio Macca ship toàn quốc qua các đơn vị vận chuyển uy tín như GHN, GHTK, J&T Express.</p>
+          <ul style="list-style:circle;margin-left:1.2rem;margin-top:0.5rem;">
+            <li>Miền Nam: 1-2 ngày</li>
+            <li>Miền Trung: 2-3 ngày</li>
+            <li>Miền Bắc: 3-4 ngày</li>
+            <li>Miễn phí vận chuyển cho đơn hàng từ 500.000đ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion" id="returns-section">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+          <span>Chính sách đổi trả</span>
+          <span>+</span>
+        </div>
+        <div class="accordion-body" id="returns-body" style="display:none;">
+          <p>Chúng tôi chấp nhận đổi trả trong vòng 7 ngày kể từ ngày nhận hàng trong các trường hợp:</p>
+          <ul style="list-style:circle;margin-left:1.2rem;margin-top:0.5rem;">
+            <li>Sản phẩm bị lỗi, hỏng do vận chuyển</li>
+            <li>Sản phẩm không đúng với mô tả</li>
+            <li>Sản phẩm gần hết hạn sử dụng</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion" id="payments-section">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+          <span>Thanh toán & Bảo mật</span>
+          <span>+</span>
+        </div>
+        <div class="accordion-body" id="payments-body" style="display:none;">
+          <p>Các phương thức thanh toán được chấp nhận:</p>
+          <ul style="list-style:circle;margin-left:1.2rem;margin-top:0.5rem;">
+            <li>Chuyển khoản ngân hàng</li>
+            <li>Tiền mặt khi nhận hàng (COD)</li>
+            <li>Ví điện tử MoMo, ZaloPay</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion" id="contact-section">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="true">
+          <span>Liên hệ hỗ trợ</span>
+          <span>-</span>
+        </div>
+        <div class="accordion-body" id="contact-body">
+          <ul style="list-style:circle;margin-left:1.2rem;margin-top:0.5rem;line-height:2.2;">
+            <li>Hộ kinh doanh: RIO MACCA</li>
+            <li>Địa chỉ: Thôn Đoàn Kết, xã Đan Phượng, huyện Lâm Hà, tỉnh Lâm Đồng</li>
+            <li>Điện thoại: <a href="tel:0977742047" style="color:var(--gold);">0977742047</a></li>
+            <li>Email: <a href="mailto:riomacca@gmail.com" style="color:var(--gold);">riomacca@gmail.com</a></li>
+            <li>Facebook: <a href="https://www.facebook.com/MaccaRIO2019" target="_blank" rel="noopener" style="color:var(--gold);">facebook.com/MaccaRIO2019</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion" id="policy-section">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+          <span>Chính sách bảo mật</span>
+          <span>+</span>
+        </div>
+        <div class="accordion-body" id="policy-body" style="display:none;">
+          <p>
+            Rio Macca cam kết bảo mật thông tin cá nhân của khách hàng. Thông tin cá nhân chỉ được sử dụng
+            để xử lý đơn hàng và liên hệ khách hàng khi cần thiết. Chúng tôi không chia sẻ thông tin
+            cá nhân với bên thứ ba nếu không có sự đồng ý của khách hàng.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // Simple accordion toggle
+  document.querySelectorAll('.accordion-header').forEach((header) => {
+    header.addEventListener('click', () => {
+      const body = header.nextElementSibling as HTMLElement;
+      const isOpen = body.style.display !== 'none';
+      const icon = header.querySelector('span:last-child');
+      body.style.display = isOpen ? 'none' : 'block';
+      if (icon) icon.textContent = isOpen ? '+' : '-';
+      header.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+
+    header.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'Enter' || ke.key === ' ') {
+        ke.preventDefault();
+        (header as HTMLElement).click();
+      }
+    });
+  });
+</script>

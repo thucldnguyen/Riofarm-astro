@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
+import ProductCollectionGrid from '../components/ProductCollectionGrid.astro';
+import BlogPreviewGrid from '../components/BlogPreviewGrid.astro';
+import ContactForm from '../components/ContactForm.astro';
+import AttributeGrid from '../components/AttributeGrid.astro';
+import { blogPosts } from '../data/blog';
+
+const featuredPosts = blogPosts.slice(0, 3);
+
+const siteUrl = 'https://riofarm.vn';
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Rio Farm',
+  alternateName: 'Rio Macca',
+  url: siteUrl,
+  logo: `${siteUrl}/products/logo.jpg`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+84-977-742-047',
+    contactType: 'customer service',
+    areaServed: 'VN',
+    availableLanguage: 'Vietnamese',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Thôn Đoàn Kết, xã Đan Phượng',
+    addressLocality: 'Lâm Hà',
+    addressRegion: 'Lâm Đồng',
+    addressCountry: 'VN',
+  },
+  sameAs: [
+    'https://www.facebook.com/MaccaRIO2019',
+  ],
+};
+---
+
+<BaseLayout
+  title="Rio Farm Lâm Hà | Nông sản sạch từ vườn macadamia"
+  description="Rio Farm Lâm Hà - Cung cấp hạt macadamia sấy cao cấp và nông sản sạch từ Lâm Hà, Lâm Đồng. Chất lượng đảm bảo, nguồn gốc rõ ràng."
+  canonical="https://riofarm.vn/"
+  ogImage="/macca_farm.jpg"
+  jsonLd={orgJsonLd}
+  noPaddingBottom={true}
+>
+  <!-- Hero -->
+  <Hero
+    image="/macca_farm.jpg"
+    imageAlt="Vườn macadamia Rio Farm Lâm Hà"
+    title="Rio Farm"
+    subtitle="Nông sản sạch"
+    priority={true}
+    minHeight="550px"
+  />
+
+  <!-- Quote Section -->
+  <section class="quote-section">
+    <div class="container-narrow">
+      <p class="quote-title">Về Chúng Tôi</p>
+      <blockquote class="quote-text">
+        "Rio Macca là doanh nghiệp cung cấp hạt macadamia sấy hàng đầu Lâm Hà - Lâm Đồng."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section style="padding:3rem 0;">
+    <div class="container">
+      <VideoPlayer videoId="BUKddHPS3pk" title="Rio Macca - Hạt macadamia Lâm Hà" />
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section style="padding:3rem 0;">
+    <div class="container">
+      <h2 class="section-title">Sản Phẩm</h2>
+      <p class="section-subtitle">Khám phá các sản phẩm nông sản sạch từ Rio Farm</p>
+      <ProductCollectionGrid />
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section style="padding:3rem 0;background:#fafafa;">
+    <div class="container">
+      <h2 class="section-title">Blog Rio Macca</h2>
+      <p class="section-subtitle">Những bài viết mới nhất về Rio Macca</p>
+      <BlogPreviewGrid posts={featuredPosts} />
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="/blog" class="btn-primary">Xem tất cả bài viết</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero 2 - Food Safety -->
+  <Hero
+    image="/antoanthucpham.webp"
+    imageAlt="An toàn thực phẩm Rio Macca Lâm Hà"
+    title="Nói không với hàng kém vệ sinh"
+    subtitle="Vệ sinh an toàn thực phẩm là ưu tiên hàng đầu của Rio Macca Lâm Hà."
+    ctaText="Mua Ngay"
+    ctaHref="/product/macca"
+    maxWidth="660px"
+    priority={false}
+    minHeight="450px"
+  />
+
+  <!-- Social Grid -->
+  <section style="padding:3rem 0;">
+    <div class="container">
+      <h2 class="section-title">Rio Macca</h2>
+      <p class="section-subtitle">Hãy tag chúng tôi trên social media: @riofarm</p>
+      <div class="social-grid" id="social-grid">
+        <img src="/social/coso2.jpeg" alt="Cơ sở Rio Macca" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;" />
+        <img src="/social/coso1.jpeg" alt="Vườn macadamia Rio" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;" />
+        <img src="/social/rio_banner.jpg" alt="Rio Macca Lâm Hà" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;" />
+        <img src="/social/rio_banner2.jpg" alt="Hạt macca sấy Rio" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <ContactForm formName="home-contact" />
+
+  <!-- Attribute Grid -->
+  <section style="padding:2rem 0;">
+    <div class="container">
+      <AttributeGrid />
+    </div>
+  </section>
+</BaseLayout>

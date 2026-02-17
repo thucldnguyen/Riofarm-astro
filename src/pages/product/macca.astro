@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProductByCode } from '../../data/products';
+
+const product = getProductByCode('macca')!;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  image: `https://riofarm.vn${product.image}`,
+  description: product.description,
+  brand: {
+    '@type': 'Brand',
+    name: 'Rio Farm',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: product.price,
+    priceCurrency: 'VND',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'Rio Farm',
+    },
+  },
+};
+---
+
+<BaseLayout
+  title="Hạt macadamia sấy cao cấp | Rio Farm"
+  description="Hạt macadamia sấy cao cấp Rio Macca - Nguồn gốc Lâm Hà, Lâm Đồng. Đóng gói hút chân không, giữ nguyên hương vị và dưỡng chất."
+  canonical="https://riofarm.vn/product/macca"
+  ogType="product"
+  ogImage={product.image}
+  jsonLd={jsonLd}
+>
+  <div class="container-large" style="padding-top:2rem;padding-bottom:3rem;">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <span>{product.name}</span>
+    </nav>
+
+    <div class="product-content">
+      <!-- Gallery -->
+      <div>
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <img
+              src={product.gallery[0].image}
+              alt={product.gallery[0].alt}
+              style="width:100%;border-radius:12px;aspect-ratio:4/3;object-fit:cover;"
+              loading="eager"
+              id="main-product-img"
+            />
+          </div>
+          {product.gallery.slice(1).map((img) => (
+            <img
+              src={img.image}
+              alt={img.alt}
+              style="width:100%;border-radius:8px;aspect-ratio:1;object-fit:cover;cursor:pointer;"
+              loading="lazy"
+              class="gallery-thumb"
+            />
+          ))}
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div>
+        <h1 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;" id="product-name">{product.name}</h1>
+        <p style="color:var(--text-secondary);margin-bottom:1rem;">bởi <strong>{product.vendor}</strong></p>
+
+        <div style="font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem;">
+          {Number(product.price).toLocaleString('vi-VN')} ₫
+        </div>
+
+        <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;">{product.description}</p>
+
+        <a href="/contact-us" class="btn-primary" style="display:inline-block;width:100%;text-align:center;font-size:1.1rem;padding:1rem;">
+          Đặt hàng ngay
+        </a>
+        <p style="font-size:0.85rem;color:var(--text-secondary);text-align:center;margin-top:0.75rem;">
+          Liên hệ qua SĐT: <a href="tel:0977742047" style="color:var(--gold);font-weight:600;">0977742047</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Long description -->
+    <div class="blog-content" style="max-width:860px;margin:3rem auto 0;">
+      <h2>Hạt mắc ca là gì?</h2>
+      <p>
+        Hạt mắc ca (tên tiếng Anh: macadamia) lấy từ cây mắc ca, loại
+        cây nhiệt đới bản địa ở Úc. Hạt mắc ca còn có một số tên gọi
+        phổ biến hơn là hạt Queensland hay hạt cây bụi. Vỏ hạt mắc ca
+        thường rất cứng, có đỉnh nhọn và chứa một hạt nhỏ bên trong.
+        Hạt mắc ca có giá trị dinh dưỡng rất lớn trong thế giới các loại hạt,
+        trong đó chứa nhiều đạm thực vật, omega 3, omega 6, omega 9 và có hơn
+        20 loại vitamin cùng khoáng chất cần thiết cho cơ thể.
+      </p>
+      <p>
+        Hạt mắc ca có xuất xứ từ Úc, sau này được trồng phổ biến ở nhiều nước khác,
+        trong đó có Việt Nam. Do điều kiện thổ nhưỡng và khí hậu thuận lợi nên hạt mắc ca
+        Lâm Hà - Lâm Đồng đạt chất lượng thơm béo khá cao sánh ngang với bạn bè quốc tế.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img src="/products/macca5.jpg" alt="Hạt macadamia thu hoạch tại Rio Macca" style="max-width:400px;width:100%;border-radius:8px;" loading="lazy" />
+      </div>
+
+      <h2>Thành phần dinh dưỡng của hạt mắc ca</h2>
+      <p>Hạt mắc ca cung cấp rất nhiều vitamin và khoáng chất thiết yếu cho cơ thể. Trong 28g hạt mắc ca có chứa tới 201 calories, 21g chất béo. Ngoài ra, trong hạt còn có:</p>
+      <ul style="list-style-type:circle;margin-left:1.2rem;">
+        <li>1mg sắt (6% nhu cầu hàng ngày)</li>
+        <li>2g protein (4% nhu cầu hàng ngày)</li>
+        <li>2mg đồng (11% nhu cầu hàng ngày)</li>
+        <li>4g chất xơ (10% nhu cầu hàng ngày)</li>
+        <li>37mg magie (9% nhu cầu hàng ngày)</li>
+        <li>3mg thiamine (23% nhu cầu hàng ngày)</li>
+        <li>1mg vitamin B6 (4% nhu cầu hàng ngày)</li>
+      </ul>
+
+      <h2>Cách bảo quản hạt mắc ca</h2>
+      <p>
+        Bạn nên bảo quản hạt mắc ca ở nơi khô ráo, thoáng mát và tránh ánh sáng mặt trời trực tiếp.
+        Hạt chưa xé bịch thường có thể để được khoảng 6 tháng kể từ ngày sản xuất.
+        Sau khi đã xé bịch, bạn nên ăn hết hạt trong vòng 3–5 ngày hoặc cho vào lọ kín để tủ lạnh ăn trong vòng 2 tháng.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img src="/products/macca6.jpg" alt="Dầu macca do Rio Macca Lâm Hà sản xuất" style="max-width:400px;width:100%;border-radius:8px;" loading="lazy" />
+      </div>
+
+      <h2>Tác dụng của hạt mắc ca</h2>
+      <p>Hạt mắc ca không chỉ hấp dẫn với hương vị béo bùi mà còn mang đến nhiều lợi ích cho sức khỏe.</p>
+
+      <p><strong>Giảm nguy cơ mắc bệnh tim</strong></p>
+      <p>
+        Hiệp hội Tim mạch Hoa Kỳ đưa ra nhận định rằng ăn hạt mắc ca thường xuyên có thể giảm nguy cơ tử vong sớm.
+        Axit béo đơn không bão hòa trong hạt mắc ca giúp: hạ huyết áp, giảm nhiễm trùng, giảm nồng độ lipid, và tăng cường sức khỏe tim mạch.
+      </p>
+
+      <p><strong>Cải thiện hội chứng tiểu đường</strong></p>
+      <p>
+        Hợp chất MUFAs (chất béo đơn không bão hòa) như trong hạt mắc ca có thể làm giảm các nguy cơ mắc hội chứng chuyển hóa
+        và giảm thiểu tác hại ở những người đang mắc phải.
+      </p>
+
+      <p><strong>Giảm nguy cơ mắc bệnh ung thư</strong></p>
+      <p>
+        Hạt mắc ca có chứa hàm lượng lớn vitamin E dạng tocotrienols có khả năng chống lại ung thư.
+        Loại hạt này còn chứa hợp chất thực vật flavonoid có thể ngăn ngừa ung thư.
+      </p>
+
+      <h2>Cơ sở sản xuất Rio Macca</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;">
+        <img src="/coso1.jpeg" alt="Cơ sở sản xuất Rio Macca 1" style="border-radius:8px;width:100%;aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
+        <img src="/coso2.jpeg" alt="Cơ sở sản xuất Rio Macca 2" style="border-radius:8px;width:100%;aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
+        <img src="/coso3.jpeg" alt="Cơ sở sản xuất Rio Macca 3" style="border-radius:8px;width:100%;aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Gallery thumbnail click
+  document.querySelectorAll('.gallery-thumb').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const mainImg = document.getElementById('main-product-img') as HTMLImageElement;
+      const thumbImg = thumb as HTMLImageElement;
+      if (mainImg && thumbImg) {
+        mainImg.src = thumbImg.src;
+        mainImg.alt = thumbImg.alt;
+      }
+    });
+  });
+</script>

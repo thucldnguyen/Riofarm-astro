@@ -1,0 +1,95 @@
+---
+const collections = [
+  {
+    image: '/products/macca1.jpg',
+    title: 'Macca Sấy',
+    text: 'Mua Ngay',
+    link: '/product/macca',
+  },
+  {
+    image: '/products/macca4.jpg',
+    title: 'Macca Sấy Tách Vỏ',
+    text: 'Mua Ngay',
+    link: '/product/macca',
+  },
+];
+---
+
+<div class="product-collection-grid">
+  {collections.map((col) => (
+    <a href={col.link} class="product-collection-item">
+      <div class="product-collection-image-wrapper">
+        <img
+          src={col.image}
+          alt={col.title}
+          class="product-collection-image"
+          loading="lazy"
+        />
+        <div class="product-collection-overlay">
+          <span class="product-collection-btn">{col.text}</span>
+        </div>
+      </div>
+      <h3 class="product-collection-title">{col.title}</h3>
+    </a>
+  ))}
+</div>
+
+<style>
+  .product-collection-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-collection-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4/5;
+  }
+
+  .product-collection-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .product-collection-item:hover .product-collection-image {
+    transform: scale(1.05);
+  }
+
+  .product-collection-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .product-collection-item:hover .product-collection-overlay {
+    opacity: 1;
+  }
+
+  .product-collection-btn {
+    background: var(--gold);
+    color: #1a1a1a;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .product-collection-title {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+</style>

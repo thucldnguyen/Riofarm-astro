@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 - Trang không tìm thấy | Rio Farm"
+  description="Trang bạn tìm kiếm không tồn tại. Trở về trang chủ Rio Farm để khám phá sản phẩm macadamia."
+  noindex={true}
+>
+  <div class="container" style="padding-top:4rem;padding-bottom:4rem;text-align:center;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <div style="font-size:6rem;margin-bottom:1rem;">🌰</div>
+    <h1 style="font-size:4rem;font-weight:800;color:var(--gold);margin-bottom:0.5rem;">404</h1>
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Trang không tìm thấy</h2>
+    <p style="color:var(--text-secondary);max-width:500px;margin-bottom:2rem;line-height:1.8;">
+      Uh oh! Có vẻ trang bạn đang tìm kiếm đã bị di chuyển hoặc không còn tồn tại.
+      Hãy quay về trang chủ để khám phá sản phẩm macadamia tuyệt vời của Rio Farm.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <a href="/" class="btn-primary">🏠 Về trang chủ</a>
+      <a href="/product/macca" class="btn-secondary">🌰 Xem sản phẩm</a>
+    </div>
+  </div>
+</BaseLayout>

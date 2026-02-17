@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Liên Hệ Rio Farm | Thương hiệu uy tín từ 2021"
+  description="Liên hệ với Rio Farm Lâm Hà để đặt hàng hạt macadamia sấy cao cấp. Địa chỉ: Thôn Đoàn Kết, xã Đan Phượng, huyện Lâm Hà, tỉnh Lâm Đồng."
+  canonical="https://riofarm.vn/contact-us"
+  ogImage="/coso1.jpeg"
+  noPaddingBottom={true}
+>
+  <!-- Hero -->
+  <Hero
+    image="/coso1.jpeg"
+    imageAlt="Cơ sở sản xuất Rio Macca Lâm Hà"
+    priority={true}
+    minHeight="400px"
+  />
+
+  <!-- Internal nav -->
+  <nav style="display:flex;gap:2rem;justify-content:center;padding:1.5rem;border-bottom:1px solid #eee;" aria-label="Section navigation">
+    <a href="#history" style="font-weight:600;color:var(--gold);">Lịch Sử</a>
+    <a href="#values" style="font-weight:600;color:var(--gold);">Giá trị cốt lõi</a>
+    <a href="#sustainability" style="font-weight:600;color:var(--gold);">Cơ sở sản xuất</a>
+  </nav>
+
+  <!-- History section -->
+  <section id="history" style="padding:3rem 0;">
+    <div class="container-narrow">
+      <p style="line-height:1.9;font-size:1.05rem;">
+        Được thành lập từ 2021, Rio Macca hay Rio Farm là thương hiệu nông
+        sản sạch hàng đầu Lâm Hà, Lâm Đồng. Chúng tôi luôn tự hào đem đến
+        cho người tiêu dùng Việt Nam những sản phẩm nông sản chất lượng
+        cao và thái độ phục vụ chu đáo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Image divider -->
+  <div style="overflow:hidden;max-height:400px;">
+    <img src="/coso2.jpeg" alt="Cơ sở Rio Macca" style="width:100%;object-fit:cover;" loading="lazy" />
+  </div>
+
+  <!-- Values + Sustainability -->
+  <section style="padding:3rem 0;">
+    <div class="container">
+      <!-- Values -->
+      <div class="split-section" id="values">
+        <div>
+          <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Giá trị cốt lõi</h3>
+          <p style="line-height:1.8;margin-bottom:1rem;">
+            Nắm bắt được nhu cầu thị hiếu của người tiêu dùng Việt Nam, Rio
+            Macca được thành lập để đem đến cho người tiêu dùng Việt Nam
+            những mặt hàng nông sản chất lượng cao với nguồn gốc xuất xứ rõ ràng.
+          </p>
+          <ol style="margin-left:1.5rem;line-height:2;">
+            <li>Minh bạch nguồn gốc from farm to table</li>
+            <li>Chất lượng phản ánh đúng giá thành</li>
+            <li>Nguyên liệu tại chỗ</li>
+          </ol>
+        </div>
+        <div>
+          <img src="/founder.jpeg" alt="Người sáng lập Rio Macca" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/5;" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Sustainability -->
+      <div class="split-section" id="sustainability">
+        <div>
+          <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Cơ sở sản xuất đạt tiêu chuẩn</h3>
+          <p style="line-height:1.8;">
+            Cơ sở sản xuất của Rio Macca đặt tại địa phận xã Đan Phượng,
+            huyện Lâm Hà, tỉnh Lâm Đồng, Việt Nam. Với diện tích rộng, sạch
+            sẽ và nhiều trang thiết bị hiện đại, Rio Macca đã cho ra đời
+            hàng loạt những lô sản phẩm nông sản chất lượng được người tiêu
+            dùng Việt Nam ưa chuộng.
+          </p>
+        </div>
+        <div>
+          <img src="/coso3.jpeg" alt="Cơ sở sản xuất Rio Macca" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/5;" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <ContactForm formName="contact-us" />
+</BaseLayout>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: 'Câu chuyện sản phẩm: Hạt macca sấy khô',
+  image: 'https://riofarm.vn/blogs/macca-story01.jpg',
+  author: {
+    '@type': 'Organization',
+    name: 'Rio Farm',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Rio Farm',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://riofarm.vn/products/logo.jpg',
+    },
+  },
+  datePublished: '2023-07-01',
+  description: 'Khám phá câu chuyện đằng sau sản phẩm hạt macca sấy khô của Rio Macca Lâm Hà, Lâm Đồng.',
+};
+---
+
+<BaseLayout
+  title="Câu chuyện sản phẩm: Hạt macca sấy khô | Rio Farm Blog"
+  description="Khám phá câu chuyện đằng sau sản phẩm hạt macca sấy khô của Rio Macca Lâm Hà, Lâm Đồng."
+  canonical="https://riofarm.vn/blog/cau-chuyen-san-pham"
+  ogType="article"
+  ogImage="/blogs/macca-story01.jpg"
+  jsonLd={jsonLd}
+>
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem;">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a>
+      <span>›</span>
+      <a href="/blog">Blog</a>
+      <span>›</span>
+      <span>Câu chuyện sản phẩm</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header style="margin-bottom:2rem;">
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">Macadamia</span>
+      <h1 style="font-size:2.2rem;font-weight:800;margin:0.5rem 0 1rem;line-height:1.3;">Câu chuyện sản phẩm</h1>
+      <p style="font-size:1.1rem;color:var(--text-secondary);">Sản phẩm Macca RIO - Hạt macca sấy khô</p>
+    </header>
+
+    <!-- Article Content -->
+    <article class="blog-content">
+      <p style="font-style:italic;color:var(--text-secondary);margin-bottom:1.5rem;">
+        Sản phẩm: Macca Rio - Hạt macca sấy khô<br />
+        Chủ thể: Hộ kinh doanh Rio Macca<br />
+        Địa chỉ: Thôn Đoàn Kết, xã Đan Phượng, huyện Lâm Hà, tỉnh Lâm Đồng
+      </p>
+
+      <p>
+        Được sản xuất, chế biến bởi Hộ kinh doanh Rio Macca (Ri Ô Mắc ca) tại thôn Đoàn Kết, xã Đan Phượng, huyện Lâm Hà, tỉnh Lâm Đồng (xã Tân Hà Lâm Hà sau sáp nhập),
+        sản phẩm mắc ca sấy Rio gây ấn tượng bởi nền bao bì màu vàng cam đặc trưng nổi bật được lấy cảm hứng từ nắng, gió của vùng đất cao nguyên.
+        Rio Macca là thành quả của quá trình khởi nghiệp nhiều gian nan, thử thách, bền bỉ để phát triển của cô gái Nguyễn Thị Ánh - một thanh niên thế hệ 9X sinh ra và lớn
+        lên trên quê hương Lâm Hà.
+      </p>
+
+      <p>
+        Xuất thân trong một gia đình nông dân, Nguyễn Thị Ánh sớm thấu hiểu được nỗi cực nhọc, thiệt thòi của người nông dân khi nông sản làm ra không có nơi tiêu thụ.
+        Bằng sự nhạy bén và bản lĩnh của mình, Nguyễn Thị Ánh đã quyết tâm theo đuổi hành trình tìm phương thức chế biến ra những hạt mắc ca sấy khô đạt tiêu chuẩn chất lượng,
+        dù ở thời điểm đó việc tiêu thụ mắc ca đang rơi vào giai đoạn khó khăn nhất.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img src="/blogs/macca-story01.jpg" alt="Chủ hộ kinh doanh Nguyễn Thị Ánh" style="max-width:600px;width:100%;border-radius:8px;" loading="lazy" />
+      </div>
+
+      <p>
+        Đến nay, cơ sở Rio Macca đã xây dựng nhà xưởng sản xuất riêng, đầu tư đồng bộ các máy móc hiện đại phục vụ chế biến, sản xuất đảm bảo tiêu chuẩn chất lượng trong mỗi mắt xích.
+        Quả mắc ca sau khi được thu hái sẽ được chà vỏ ngay trong ngày và tiến hành phân size, trải qua quy trình sấy chuẩn để giữ lại được tối đa chất dinh dưỡng và hương vị thơm ngon.
+        Hạt thành phẩm sẽ được đóng gói theo nhu cầu của khách hàng.
+      </p>
+
+      <p>
+        Bên cạnh đó, cơ sở Rio Macca đặc biệt quan tâm đến việc duy trì ổn định về sản lượng và chất lượng tại các vườn
+        nguyên liệu mắc ca với các nông hộ trên địa bàn. Những vườn mắc ca nguyên liệu cung cấp cho cơ sở Rio Macca đều là những vườn đã đạt 10 năm tuổi,
+        cho năng suất, chất lượng tốt nhất.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0;">
+        <img src="/blogs/macca-story02.jpg" alt="Thu hoạch macca" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/blogs/macca-story03.jpg" alt="Sơ chế macca" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/blogs/macca-story04.jpg" alt="Phân loại macca" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/blogs/macca-story05.jpg" alt="Đóng gói macca" style="border-radius:8px;width:100%;" loading="lazy" />
+      </div>
+
+      <p>
+        Hiện nay, trung bình mỗi năm, Rio Macca chế biến thành phẩm và tiêu thụ đạt sản lượng trên 10 tấn mắc ca. Cơ sở đạt các điều kiện như giấy chứng nhận đăng ký kinh doanh,
+        chứng nhận cơ sở đủ điều kiện an toàn thực phẩm, đồng thời đã tiến hành tự công bố sản phẩm theo quy định. Toàn bộ sản phẩm mắc ca sấy nứt được phân loại theo size lớn và
+        size trung, đóng gói hút chân không hoặc đựng trong lon PET với khối lượng tịnh loại 250g và loại 500g.
+      </p>
+
+      <p>
+        Bên cạnh các thông tin về nơi sản xuất, số điện thoại liên hệ, website
+        được in trên bao bì, khách hàng còn có thể trích xuất mã QR để kiểm tra, xác minh thêm về thông tin sản phẩm. Với những cam kết về uy tín, chất lượng, hộ kinh doanh Rio Macca
+        đã thiết lập và xây dựng cho mình kênh tiêu thụ sản phẩm ổn định trên nền tảng của facebook, zalo với hàng nghìn lượt theo dõi, tương tác.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;">
+        <img src="/blogs/macca-story06.jpg" alt="Sản phẩm Rio Macca 6" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/blogs/macca-story07.jpg" alt="Sản phẩm Rio Macca 7" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/blogs/macca-story08.jpg" alt="Sản phẩm Rio Macca 8" style="border-radius:8px;width:100%;" loading="lazy" />
+      </div>
+
+      <p>
+        Bên cạnh dòng sản phẩm hạt mắc ca sấy khô được người tiêu dùng yêu thích, cơ sở Rio Macca đang tiếp tục ấp ủ với dự định chế biến thêm các sản phẩm dinh dưỡng
+        từ mắc ca như dầu ăn, bánh quy… phục vụ cho người tiêu dùng là trẻ em, người già, những người thực hiện chế độ ăn kiêng.
+      </p>
+
+      <p>
+        Đã qua chặng đường đầu tiên gian khó, Rio Macca giờ đây không chỉ đang viết tiếp hành trình khởi nghiệp với những dự định mới, khát vọng vươn xa hơn của cô gái Nguyễn Thị Ánh,
+        mà còn là "sứ giả" kết nối giữa những người nông dân ở nơi từng là vùng kinh tế mới của Hà Nội tại Lâm Đồng với các vùng, miền, tỉnh, thành trên mọi miền Tổ quốc.
+      </p>
+
+      <!-- Video -->
+      <div style="margin-top:2rem;">
+        <VideoPlayer videoId="BUKddHPS3pk" title="Rio Macca - Câu chuyện sản phẩm" />
+      </div>
+    </article>
+
+    <!-- Back link -->
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #eee;">
+      <a href="/blog" class="btn-primary">← Quay lại Blog</a>
+    </div>
+  </div>
+</BaseLayout>

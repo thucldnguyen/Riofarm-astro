@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: object;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  ogImage = '/blogs/macca-story01.jpg',
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = 'https://riofarm.vn';
+const canonicalUrl = canonical ? canonical : `${siteUrl}${Astro.url.pathname}`;
+const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageFull} />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:site_name" content="Rio Farm" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageFull} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+
+<!-- JSON-LD -->
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

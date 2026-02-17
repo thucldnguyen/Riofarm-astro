@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: 'Cơ sở sản xuất Rio Macca có đạt tiêu chuẩn chất lượng?',
+  image: 'https://riofarm.vn/blogs/coso3.jpeg',
+  author: { '@type': 'Organization', name: 'Rio Farm' },
+  publisher: { '@type': 'Organization', name: 'Rio Farm', logo: { '@type': 'ImageObject', url: 'https://riofarm.vn/products/logo.jpg' } },
+  datePublished: '2023-08-01',
+  description: 'Tìm hiểu về cơ sở sản xuất đạt chuẩn vệ sinh an toàn thực phẩm của Rio Macca Lâm Hà.',
+};
+---
+
+<BaseLayout
+  title="Cơ sở sản xuất Rio Macca có đạt tiêu chuẩn? | Rio Farm Blog"
+  description="Tìm hiểu về cơ sở sản xuất đạt chuẩn vệ sinh an toàn thực phẩm của Rio Macca Lâm Hà."
+  canonical="https://riofarm.vn/blog/co-so-dat-chuan"
+  ogType="article"
+  ogImage="/blogs/coso3.jpeg"
+  jsonLd={jsonLd}
+>
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/blog">Blog</a><span>›</span>
+      <span>Cơ sở đạt tiêu chuẩn</span>
+    </nav>
+
+    <header style="margin-bottom:2rem;">
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">NEWS</span>
+      <h1 style="font-size:2.2rem;font-weight:800;margin:0.5rem 0 1rem;line-height:1.3;">Cơ sở Rio Macca có đạt tiêu chuẩn chất lượng?</h1>
+    </header>
+
+    <article class="blog-content">
+      <p style="font-style:italic;color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem;">
+        Cơ cở sản xuất của Rio Macca đạt đủ các tiêu chuẩn về vệ sinh an toàn thực phẩm
+      </p>
+
+      <p>
+        Được cơ quan chức năng có thẩm quyền cấp giấy phép kinh doanh vào năm
+        2021, đến nay Rio Macca đã có 5 năm kinh nghiệm sản xuất hạt macca sấy.
+      </p>
+
+      <p>
+        Cơ sở của Rio Macca đạt chất lượng vệ sinh an toàn thực phẩm cao nhất.
+        Hạt macca luôn được sàn lọc cẩn thận về size lẫn độ ẩm và nguồn gốc.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;">
+        <img src="/coso4.jpeg" alt="Cơ sở sản xuất Rio Macca" style="border-radius:8px;width:100%;" loading="lazy" />
+        <img src="/riomacca.jpeg" alt="Hạt macca Rio" style="border-radius:8px;width:100%;" loading="lazy" />
+      </div>
+    </article>
+
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #eee;">
+      <a href="/blog" class="btn-primary">← Quay lại Blog</a>
+    </div>
+  </div>
+</BaseLayout>
