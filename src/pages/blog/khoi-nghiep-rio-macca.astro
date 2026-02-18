@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: 'Từ Cô Gái Nông Dân Đến Thương Hiệu Macca Lâm Hà — Câu Chuyện Khởi Nghiệp Của Rio Macca',
+  image: 'https://riofarm.vn/blogs/riomacca.jpeg',
+  author: { '@type': 'Organization', name: 'Rio Farm' },
+  publisher: { '@type': 'Organization', name: 'Rio Farm', logo: { '@type': 'ImageObject', url: 'https://riofarm.vn/products/logo.jpg' } },
+  datePublished: '2025-07-15',
+  description: 'Câu chuyện khởi nghiệp của Nguyễn Thị Ánh — cô gái 9x Lâm Hà đã biến nỗi trăn trở của người nông dân thành thương hiệu macca được tin yêu khắp cả nước.',
+};
+---
+
+<BaseLayout
+  title="Câu Chuyện Khởi Nghiệp Rio Macca — Từ Cô Gái Nông Dân Đến Thương Hiệu Macca Lâm Hà | Rio Farm Blog"
+  description="Câu chuyện khởi nghiệp của Nguyễn Thị Ánh — cô gái 9x Lâm Hà đã biến nỗi trăn trở của người nông dân thành thương hiệu macca được tin yêu khắp cả nước."
+  canonical="https://riofarm.vn/blog/khoi-nghiep-rio-macca"
+  ogType="article"
+  ogImage="/blogs/riomacca.jpeg"
+  jsonLd={jsonLd}
+>
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/blog">Blog</a><span>›</span>
+      <span>Câu chuyện khởi nghiệp Rio Macca</span>
+    </nav>
+
+    <header style="margin-bottom:2rem;">
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">Câu chuyện</span>
+      <h1 style="font-size:2.2rem;font-weight:800;margin:0.5rem 0 1rem;line-height:1.3;">Từ Cô Gái Nông Dân Đến Thương Hiệu Macca Lâm Hà — Câu Chuyện Khởi Nghiệp Của Rio Macca</h1>
+      <p style="font-size:0.9rem;color:var(--text-secondary);">Đăng ngày 15/07/2025</p>
+    </header>
+
+    <article class="blog-content">
+      <p style="font-style:italic;color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem;">
+        Có một nghịch lý nhức nhối ở vùng đất Lâm Hà: nông dân trồng mắc ca ngày càng nhiều,
+        nhưng nơi tiêu thụ thì gần như không có. Chính nỗi trăn trở đó đã đẩy một cô gái 9x
+        bước vào hành trình khởi nghiệp đầy gian nan — và tạo ra Rio Macca như ngày hôm nay.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img src="/blogs/riomacca.jpeg" alt="Hạt mắc ca tươi trên cây tại vườn Lâm Hà" style="max-width:600px;width:100%;border-radius:8px;" loading="lazy" />
+      </div>
+
+      <h2>Bài toán không ai chịu giải</h2>
+      <p>
+        Lâm Hà, Lâm Đồng — vùng đất cao nguyên được thiên nhiên ưu đãi về thổ nhưỡng và khí hậu,
+        nơi cây mắc ca sinh trưởng tốt và cho năng suất cao. Nhiều nông hộ đã mạnh dạn trồng mắc ca
+        với diện tích không nhỏ. Thế nhưng khi quả chín, họ loay hoay không biết bán cho ai.
+        Cơ sở chế biến tại địa phương thì quá ít. Thị trường tiêu thụ lại đang trong giai đoạn
+        khó khăn.
+      </p>
+      <p>
+        Nguyễn Thị Ánh — sinh ra và lớn lên trong một gia đình nông dân ngay trên mảnh đất Lâm Hà —
+        hiểu rõ nỗi cực nhọc đó hơn ai hết. Chứng kiến nông sản làm ra không có nơi tiêu thụ,
+        cô không chọn cách thở dài rồi bỏ qua.
+      </p>
+
+      <h2>Quyết định liều lĩnh đúng thời điểm khó nhất</h2>
+      <p>
+        Khoảng 5 năm trước, khi thị trường macca đang rơi vào giai đoạn khó khăn nhất,
+        Ánh bắt đầu đi tìm hiểu thị trường. Và cô phát hiện ra điều mà nhiều người đã bỏ qua:
+      </p>
+      <blockquote style="border-left:4px solid var(--gold);padding:0.75rem 1.25rem;margin:1.5rem 0;font-style:italic;background:#fffbf0;">
+        "Hạt mắc ca này có mang một hương vị rất đặc trưng mà không nơi nào có được."
+        <footer style="margin-top:0.5rem;font-style:normal;font-size:0.9rem;color:var(--text-secondary);">— Nguyễn Thị Ánh, người sáng lập Rio Macca</footer>
+      </blockquote>
+      <p>
+        Đó là khoảnh khắc cô quyết định: lấy hạt macca Lâm Hà làm mặt hàng khởi nghiệp.
+        Không phải vì thị trường dễ, mà vì sản phẩm đủ tốt để xứng đáng được biết đến.
+      </p>
+
+      <h2>Xây từng viên gạch, không bỏ tắt</h2>
+      <p>
+        Từ những bước đi đầu tiên gian khó, Rio Macca dần xây dựng được nhà xưởng sản xuất riêng,
+        đầu tư đồng bộ các máy móc hiện đại phục vụ chế biến. Không chỉ lo đầu ra,
+        Ánh còn thiết lập quan hệ hợp tác bền chặt với các nông hộ trên địa bàn —
+        cam kết thu mua với giá tốt để đổi lấy sự tuân thủ quy trình kỹ thuật từ phía người trồng.
+      </p>
+      <p>
+        Sản phẩm đạt đầy đủ các chứng nhận: đăng ký kinh doanh, chứng nhận cơ sở đủ điều kiện
+        an toàn thực phẩm, và tự công bố sản phẩm theo quy định. Trung bình mỗi năm,
+        Rio Macca chế biến và tiêu thụ trên 10 tấn thành phẩm.
+      </p>
+
+      <h2>Không chỉ là kinh doanh — đây là cầu nối</h2>
+      <p>
+        Rio Macca hôm nay không chỉ là một cơ sở sản xuất. Đây là sứ giả kết nối những người
+        nông dân ở vùng kinh tế mới của Hà Nội tại Lâm Đồng với khách hàng trên khắp mọi miền
+        tổ quốc. Mỗi túi macca được gửi đi là một lần câu chuyện của người nông dân Lâm Hà
+        được kể thêm với thế giới bên ngoài.
+      </p>
+      <p>
+        Và Nguyễn Thị Ánh vẫn còn đang viết tiếp hành trình đó — với những dự định mới,
+        khát vọng vươn xa hơn, và mong muốn một ngày nào đó sản phẩm Rio Macca được bảo hộ
+        như một đặc sản đặc trưng của vùng đất Đan Phượng, Lâm Hà.
+      </p>
+
+      <div style="background:#fffbf0;border-radius:8px;padding:1.5rem;margin-top:2rem;">
+        <p style="margin:0 0 1rem;font-weight:600;">Muốn thử sản phẩm của cô gái đã dám bắt đầu khi thị trường khó nhất?</p>
+        <a href="/products" class="btn-primary">Xem sản phẩm Rio Macca →</a>
+      </div>
+    </article>
+
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #eee;">
+      <a href="/blog" class="btn-primary">← Quay lại Blog</a>
+    </div>
+  </div>
+</BaseLayout>
