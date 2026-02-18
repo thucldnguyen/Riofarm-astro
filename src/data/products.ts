@@ -72,7 +72,7 @@ export const products: Product[] = [
       { image: '/products/hat_de_cuoi_2.jpg', alt: 'Hạt dẻ cười Rio Farm 2' },
       { image: '/products/hat_de_cuoi_3.jpg', alt: 'Hạt dẻ cười Rio Farm 3' },
     ],
-    description: 'Hạt dẻ cười (hạt pistachio) được Rio Farm tuyển chọn và đóng gói cẩn thận trong hộp nhựa kín khí tại Lâm Hà, Lâm Đồng. Thơm bùi, giòn ngon, giàu dinh dưỡng.',
+    description: 'Hạt dẻ cười (pistachio) Rio Farm — tuyển chọn kỹ, rang vừa lửa, đóng gói kín khí. Giàu protein, chất béo không bão hòa đơn, chất xơ và các vi chất thiết yếu như vitamin B6, kali, magiê. Thơm bùi, vỏ nứt tự nhiên, tiện lợi ăn vặt mọi lúc.',
   },
   {
     productCode: 'hanh-nhan-rang-bo',
