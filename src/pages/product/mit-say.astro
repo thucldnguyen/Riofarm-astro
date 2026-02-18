@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProductByCode } from '../../data/products';
+
+const product = getProductByCode('mit-say')!;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  image: `https://riofarm.vn${product.image}`,
+  description: product.description,
+  brand: {
+    '@type': 'Brand',
+    name: 'Rio Farm',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'Rio Farm',
+    },
+  },
+};
+---
+
+<BaseLayout
+  title="Mít Sấy | Rio Farm"
+  description="Mít sấy 100% nguyên chất tự nhiên. Mít thái không đường, vị ngọt tự nhiên. Đóng túi các size, giao hàng toàn quốc."
+  canonical="https://riofarm.vn/product/mit-say"
+  ogType="product"
+  ogImage={product.image}
+  jsonLd={jsonLd}
+>
+  <div class="container-large product-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/#san-pham">Sản phẩm</a><span>›</span>
+      <span>{product.name}</span>
+    </nav>
+
+    <div class="product-content">
+      <div>
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <img
+              src={product.gallery[0].image}
+              alt={product.gallery[0].alt}
+              style="width:100%;border-radius:12px;aspect-ratio:4/3;object-fit:cover;"
+              loading="eager"
+              id="main-product-img"
+            />
+          </div>
+          {product.gallery.slice(1).map((img) => (
+            <img
+              src={img.image}
+              alt={img.alt}
+              style="width:100%;border-radius:8px;aspect-ratio:1;object-fit:cover;cursor:pointer;"
+              loading="lazy"
+              class="gallery-thumb"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h1 class="product-name" id="product-name">{product.name}</h1>
+        <p class="product-vendor">bởi <strong>{product.vendor}</strong></p>
+
+        <div class="product-price-label">Liên hệ</div>
+
+        <p class="product-copy">{product.description}</p>
+
+        <div style="margin-bottom:1rem;">
+          <label for="qty" class="product-qty-label">Số lượng</label>
+          <input id="qty" type="number" min="1" value="1" class="product-qty-input" />
+        </div>
+
+        <div class="product-actions">
+          <button id="add-to-cart" class="btn-secondary" style="width:100%;">Thêm vào giỏ</button>
+          <button id="buy-now" class="btn-primary" style="width:100%;">Mua ngay</button>
+        </div>
+        <p id="cart-feedback" style="font-size:0.9rem;color:var(--gold-dark);margin-top:0.75rem;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="product-json" set:html={JSON.stringify(product)}></script>
+  <script>
+    document.querySelectorAll('.gallery-thumb').forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const mainImg = document.getElementById('main-product-img') as HTMLImageElement | null;
+        const thumbImg = thumb as HTMLImageElement;
+        if (mainImg && thumbImg) {
+          mainImg.src = thumbImg.src;
+          mainImg.alt = thumbImg.alt;
+        }
+      });
+    });
+
+    const dataEl = document.getElementById('product-json');
+    const addBtn = document.getElementById('add-to-cart');
+    const buyNowBtn = document.getElementById('buy-now');
+    const qtyEl = document.getElementById('qty') as HTMLInputElement | null;
+    const feedback = document.getElementById('cart-feedback');
+    const productData = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
+
+    function addToCart(redirectToCheckout = false) {
+      if (!window.RioCart || !productData) return;
+      const qty = Math.max(1, Number(qtyEl?.value || 1));
+      window.RioCart.addToCart(productData, qty);
+      if (feedback) feedback.textContent = `Đã thêm ${qty} sản phẩm vào giỏ hàng`;
+      if (redirectToCheckout) window.location.href = '/checkout';
+    }
+
+    addBtn?.addEventListener('click', () => addToCart(false));
+    buyNowBtn?.addEventListener('click', () => addToCart(true));
+  </script>
+</BaseLayout>

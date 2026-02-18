@@ -42,8 +42,8 @@ describe('Blog data', () => {
 });
 
 describe('Product data', () => {
-  it('should have 3 products', () => {
-    expect(products).toHaveLength(3);
+  it('should have 9 products', () => {
+    expect(products).toHaveLength(9);
   });
 
   it('should have macca product', () => {

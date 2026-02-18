@@ -49,5 +49,67 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <!-- Zalo Floating Button -->
+    <a
+      href="https://zalo.me/0977742047"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="zalo-float"
+      aria-label="Liên hệ Zalo Rio Farm"
+      title="Nhắn Zalo cho chúng tôi"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="24" fill="#0068ff"/>
+        <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="Arial,sans-serif">Z</text>
+      </svg>
+      <span class="zalo-label">Zalo</span>
+    </a>
+
+    <style>
+      .zalo-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #0068ff;
+        color: #fff;
+        border-radius: 50px;
+        padding: 10px 18px 10px 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 18px rgba(0,104,255,0.45);
+        animation: zalo-pulse 2.2s ease-in-out infinite;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .zalo-float:hover {
+        transform: scale(1.07);
+        box-shadow: 0 6px 24px rgba(0,104,255,0.6);
+        animation: none;
+      }
+
+      .zalo-label {
+        letter-spacing: 0.03em;
+      }
+
+      @keyframes zalo-pulse {
+        0%, 100% { box-shadow: 0 4px 18px rgba(0,104,255,0.45); }
+        50% { box-shadow: 0 4px 30px rgba(0,104,255,0.75), 0 0 0 8px rgba(0,104,255,0.12); }
+      }
+
+      @media (max-width: 480px) {
+        .zalo-float {
+          bottom: 16px;
+          right: 16px;
+          padding: 10px 14px 10px 10px;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
   </body>
 </html>

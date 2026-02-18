@@ -1,30 +1,12 @@
 ---
-const collections = [
-  {
-    image: '/products/macca1.jpg',
-    title: 'Macca Sấy',
-    text: 'Mua Ngay',
-    link: '/product/macca',
-  },
-  {
-    image: '/products/macca4.jpg',
-    title: 'Macca Sấy Tách Vỏ',
-    text: 'Mua Ngay',
-    link: '/product/macca',
-  },
-  {
-    image: '/products/macca6.jpg',
-    title: 'Dầu Macca',
-    text: 'Mua Ngay',
-    link: '/product/macca-oil',
-  },
-  {
-    image: '/products/hat_mix.jpg',
-    title: 'Hạt Mix',
-    text: 'Mua Ngay',
-    link: '/product/mix-nuts',
-  },
-];
+import { products } from '../data/products';
+
+const collections = products.map((p) => ({
+  image: p.image,
+  title: p.name,
+  text: 'Xem Chi Tiết',
+  link: `/product/${p.productCode}`,
+}));
 ---
 
 <div class="product-collection-grid">
@@ -47,6 +29,24 @@ const collections = [
 </div>
 
 <style>
+  .product-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .product-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .product-collection-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .product-collection-item {
     display: block;
     text-decoration: none;
@@ -101,7 +101,7 @@ const collections = [
 
   .product-collection-title {
     margin-top: 0.85rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     text-align: center;
     font-family: 'Montserrat', sans-serif;

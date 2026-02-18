@@ -122,6 +122,121 @@ const orgJsonLd = {
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="section-pad testimonials-section">
+    <div class="container">
+      <h2 class="section-title">Khách Hàng Nói Gì?</h2>
+      <p class="section-subtitle">Những chia sẻ thật từ khách hàng đã mua và thưởng thức sản phẩm Rio Farm</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Mít ngon lắm em. Bọn nhà chị ăn hết 2 cân rồi kk 😂"</p>
+          <p class="testimonial-author">— <strong>Chị Lan</strong>, TP.HCM</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Mang về cho mẹ ăn ké mà mẹ với các mợ ăn hết sạch của e 😅"</p>
+          <p class="testimonial-author">— <strong>Bạn Ngọc</strong>, Hà Nội</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Ghiền mít nhà em rồi. Đà Lạt có ai bán không?"</p>
+          <p class="testimonial-author">— <strong>Chị Thu</strong>, Đà Lạt</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Mít này ăn ngon lắm á, nhận hàng nhanh nữa!"</p>
+          <p class="testimonial-author">— <strong>Bạn Hương</strong>, Cần Thơ</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Hạt macca thơm bùi, đóng gói sạch sẽ. Mua lần 2 rồi vẫn thấy ok!"</p>
+          <p class="testimonial-author">— <strong>Anh Minh</strong>, Đà Nẵng</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Shop giao hàng siêu nhanh, hạt còn mới lắm. Sẽ ủng hộ dài dài 🙏"</p>
+          <p class="testimonial-author">— <strong>Chị Mai</strong>, Hải Phòng</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .testimonials-section {
+      background: linear-gradient(135deg, #fffbf0 0%, #fff8e8 100%);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      border: 1px solid #f5e9cc;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.11);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--gold);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-stars {
+      color: #f5c518;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.97rem;
+      color: #3a3a3a;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.88rem;
+      color: #888;
+    }
+
+    .testimonial-author strong {
+      color: #555;
+    }
+  </style>
+
   <!-- Contact Form -->
   <ContactForm formName="home-contact" />
 
