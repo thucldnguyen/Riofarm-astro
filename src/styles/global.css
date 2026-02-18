@@ -532,15 +532,33 @@ img {
 /* Breadcrumbs */
 .breadcrumbs {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: nowrap;
   align-items: center;
+  gap: 0.35rem;
   font-size: 0.875rem;
   color: var(--text-secondary);
   padding: 1rem 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.breadcrumbs a,
+.breadcrumbs > span.breadcrumb-sep {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .breadcrumbs a {
   color: var(--gold);
+}
+
+/* Last segment (current page) truncates instead of wrapping */
+.breadcrumbs > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 /* Gallery */
