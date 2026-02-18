@@ -23,6 +23,17 @@ export const blogPosts: BlogPost[] = [
     description: 'Ghé thăm gian hàng Tết Rio Macca tại cơ sở Lâm Hà — xem sản phẩm trực tiếp, chọn quà Tết chất lượng và mua tại chỗ.',
   },
   {
+    slug: 'rio-macca-thi-truong-han-quoc',
+    title: 'Rio Macca Vươn Ra Thị Trường Hàn Quốc — Từ Lâm Hà Đến Quốc Tế',
+    category: 'Tin tức',
+    excerpt: 'Rio Macca tham gia sự kiện kết nối thương mại Lâm Đồng – Hàn Quốc tại Quảng trường Lâm Viên, Đà Lạt — cột mốc đánh dấu tham vọng vươn ra thị trường quốc tế.',
+    image: '/blogs/baolamdong-anh.jpg',
+    alt: 'Chị Nguyễn Thị Ánh tại gian hàng Rio Macca trong sự kiện kết nối thương mại Lâm Đồng - Hàn Quốc',
+    link: '/blog/rio-macca-thi-truong-han-quoc',
+    publishDate: '2025-12-01',
+    description: 'Rio Macca từ Lâm Hà tham gia sự kiện kết nối thương mại với Hàn Quốc — cột mốc quốc tế đầu tiên của thương hiệu mắc ca OCOP 3 sao này.',
+  },
+  {
     slug: 'hat-macca-lam-ha',
     title: "Vì Sao Hạt Macca Lâm Hà Được Gọi Là 'Nữ Hoàng Quả Khô'?",
     category: 'Kiến thức',
