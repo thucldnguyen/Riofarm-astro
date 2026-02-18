@@ -1,18 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 import ProductCollectionGrid from '../components/ProductCollectionGrid.astro';
+import AttributeGrid from '../components/AttributeGrid.astro';
 ---
 
 <BaseLayout
   title="Sản phẩm Rio Macca | Hạt mắc ca Lâm Hà"
-  description="Khám phá các sản phẩm hạt mắc ca Rio Macca từ Lâm Hà, Lâm Đồng."
+  description="Khám phá các sản phẩm hạt mắc ca Rio Macca từ Lâm Hà, Lâm Đồng — chứng nhận OCOP 3 sao, đóng gói kín khí, giao toàn quốc."
   canonical="https://riofarm.vn/products"
+  ogImage="/blogs/macca-story04.jpg"
+  noPaddingBottom={true}
 >
+  <Hero
+    image="/blogs/macca-story04.jpg"
+    imageAlt="Sản phẩm Rio Macca tại cơ sở Lâm Hà"
+    title="Sản phẩm Rio Macca"
+    subtitle="Nông sản sạch từ vùng cao nguyên Lâm Hà — OCOP 3 sao"
+    ctaText="Liên hệ đặt hàng"
+    ctaHref="/contact-us"
+    maxWidth="680px"
+    priority={true}
+    minHeight="460px"
+  />
+
   <section class="section-pad">
     <div class="container-large">
-      <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:.5rem;font-family:'Montserrat',sans-serif;">Sản phẩm Rio Macca</h1>
-      <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Chọn sản phẩm phù hợp và liên hệ để được tư vấn nhanh nhất.</p>
+      <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.5rem;font-family:'Montserrat',sans-serif;text-align:center;">Tất cả sản phẩm</h2>
+      <p style="color:var(--text-secondary);margin-bottom:2rem;text-align:center;">Chọn sản phẩm phù hợp và liên hệ để được tư vấn nhanh nhất.</p>
       <ProductCollectionGrid />
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:#fafafa;">
+    <div class="container">
+      <AttributeGrid />
     </div>
   </section>
 </BaseLayout>
