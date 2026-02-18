@@ -15,8 +15,13 @@ import ContactForm from '../components/ContactForm.astro';
   <Hero
     image="/coso1.jpeg"
     imageAlt="Cơ sở sản xuất Rio Macca Lâm Hà"
+    title="Liên hệ Rio Macca"
+    subtitle="Tư vấn nhanh về sản phẩm, đơn hàng và hợp tác"
+    ctaText="Gửi thông tin liên hệ"
+    ctaHref="#contact-form"
+    maxWidth="680px"
     priority={true}
-    minHeight="400px"
+    minHeight="460px"
   />
 
   <!-- Internal nav -->
@@ -86,5 +91,7 @@ import ContactForm from '../components/ContactForm.astro';
   </section>
 
   <!-- Contact Form -->
-  <ContactForm formName="contact-us" />
+  <section id="contact-form">
+    <ContactForm formName="contact-us" />
+  </section>
 </BaseLayout>
