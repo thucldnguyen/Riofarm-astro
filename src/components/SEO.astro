@@ -46,7 +46,9 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 <meta name="twitter:image" content={ogImageFull} />
 
 <!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+<link rel="shortcut icon" href="/favicon.ico" />
 
 <!-- JSON-LD -->
 {jsonLd && (
