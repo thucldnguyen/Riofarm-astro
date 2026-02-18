@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: 'Macca vs Hạnh Nhân vs Óc Chó vs Hạt Điều — Loại nào tốt nhất?',
+  image: 'https://riofarm.vn/blogs/macadamia-nuts.jpeg',
+  author: { '@type': 'Organization', name: 'Rio Farm' },
+  publisher: { '@type': 'Organization', name: 'Rio Farm', logo: { '@type': 'ImageObject', url: 'https://riofarm.vn/products/logo.jpg' } },
+  datePublished: '2025-06-01',
+  description: 'So sánh hạt macca với hạnh nhân, óc chó và hạt điều về dinh dưỡng, lợi ích sức khỏe. Loại nào phù hợp với bạn?',
+};
+---
+
+<BaseLayout
+  title="Macca vs Hạnh Nhân vs Óc Chó vs Hạt Điều — Loại nào tốt nhất? | Rio Farm Blog"
+  description="So sánh hạt macca với hạnh nhân, óc chó và hạt điều về dinh dưỡng, lợi ích sức khỏe. Loại nào phù hợp với bạn?"
+  canonical="https://riofarm.vn/blog/so-sanh-hat-macca"
+  ogType="article"
+  ogImage="/blogs/macadamia-nuts.jpeg"
+  jsonLd={jsonLd}
+>
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/blog">Blog</a><span>›</span>
+      <span>So sánh hạt macca với các loại hạt khác</span>
+    </nav>
+
+    <header style="margin-bottom:2rem;">
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">Kiến thức</span>
+      <h1 style="font-size:2.2rem;font-weight:800;margin:0.5rem 0 1rem;line-height:1.3;">Macca vs Hạnh Nhân vs Óc Chó vs Hạt Điều — Loại nào tốt nhất?</h1>
+    </header>
+
+    <article class="blog-content">
+      <p style="font-style:italic;color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem;">
+        Bạn đang phân vân không biết nên chọn hạt nào để ăn vặt lành mạnh mỗi ngày?
+        Hãy cùng so sánh bốn loại hạt phổ biến nhất — macca, hạnh nhân, óc chó và hạt điều —
+        để tìm ra loại phù hợp nhất với nhu cầu của bạn.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img
+          src="/blogs/macadamia-nuts.jpeg"
+          alt="So sánh hạt macca với các loại hạt khác"
+          style="max-width:100%;border-radius:12px;"
+          loading="lazy"
+        />
+      </div>
+
+      <h2>Tổng quan dinh dưỡng (trên 100g)</h2>
+      <p>
+        Dưới đây là bảng so sánh các chỉ số dinh dưỡng chính dựa trên dữ liệu từ
+        Cơ sở dữ liệu dinh dưỡng USDA (FoodData Central):
+      </p>
+
+      <div style="overflow-x:auto;margin:1.5rem 0;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+          <thead>
+            <tr style="background:var(--green, #2d6a4f);color:#fff;">
+              <th style="padding:0.75rem 1rem;text-align:left;border-radius:8px 0 0 0;">Chỉ số</th>
+              <th style="padding:0.75rem 1rem;text-align:center;">🥜 Macca</th>
+              <th style="padding:0.75rem 1rem;text-align:center;">🫘 Hạnh nhân</th>
+              <th style="padding:0.75rem 1rem;text-align:center;">🧠 Óc chó</th>
+              <th style="padding:0.75rem 1rem;text-align:center;border-radius:0 8px 0 0;">🍚 Hạt điều</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#f9f7f2;">
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">Calo (kcal)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">~718</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">~579</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">~654</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">~553</td>
+            </tr>
+            <tr>
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">Chất béo tổng (g)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">75,8</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">49,9</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">65,2</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">43,8</td>
+            </tr>
+            <tr style="background:#f9f7f2;">
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">MUFA — chất béo tốt (g)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;"><strong>58,9 ✓</strong></td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">31,5</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">8,9</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">23,8</td>
+            </tr>
+            <tr>
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">Protein (g)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">7,9</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;"><strong>21,2 ✓</strong></td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">15,2</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">18,2</td>
+            </tr>
+            <tr style="background:#f9f7f2;">
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">Omega-3 (g)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">0,2</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">0,0</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;"><strong>9,1 ✓</strong></td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">0,1</td>
+            </tr>
+            <tr>
+              <td style="padding:0.65rem 1rem;font-weight:600;border-bottom:1px solid #eee;">Carb (g)</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;"><strong>13,8 (thấp)</strong></td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">21,6</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">13,7</td>
+              <td style="padding:0.65rem 1rem;text-align:center;border-bottom:1px solid #eee;">30,2</td>
+            </tr>
+            <tr style="background:#f9f7f2;">
+              <td style="padding:0.65rem 1rem;font-weight:600;">Nổi bật về vi chất</td>
+              <td style="padding:0.65rem 1rem;text-align:center;">Mg, B1, Mn</td>
+              <td style="padding:0.65rem 1rem;text-align:center;">Vitamin E, Ca</td>
+              <td style="padding:0.65rem 1rem;text-align:center;">Chất chống oxy hóa</td>
+              <td style="padding:0.65rem 1rem;text-align:center;">Kẽm, Sắt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--text-secondary);">
+        * Nguồn: USDA FoodData Central. Giá trị là xấp xỉ, có thể thay đổi tùy theo giống và cách chế biến.
+      </p>
+
+      <h2>🥜 Hạt Macca — "Nữ hoàng" của chất béo tốt</h2>
+      <p>
+        Hạt macca (mắc ca) có hàm lượng axit béo không bão hòa đơn (MUFA) cao nhất
+        trong nhóm hạt cây — khoảng 58–60g trên 100g. Loại chất béo này, chủ yếu là
+        <strong>axit oleic</strong> — cũng có trong dầu ô liu — được nghiên cứu rộng rãi
+        về tác động hỗ trợ sức khỏe tim mạch và giảm viêm.
+      </p>
+      <p>
+        Điểm đặc biệt: hạt macca có tỷ lệ <strong>omega-6 rất thấp</strong>, nghĩa là
+        tỷ lệ omega-6/omega-3 cân bằng hơn so với nhiều loại hạt khác — điều này tốt
+        cho những người muốn kiểm soát lượng omega-6 trong chế độ ăn.
+        Ngoài ra, macca là nguồn cung cấp <strong>magiê (Mg)</strong> và
+        <strong>vitamin B1 (thiamine)</strong> tốt, hỗ trợ hệ thần kinh và chuyển hóa năng lượng.
+      </p>
+      <p>
+        <em>Phù hợp nhất cho:</em> người ăn low-carb, keto, hoặc muốn bổ sung chất béo lành mạnh.
+        Hương vị bùi ngậy, béo nhẹ của macca cũng là điểm cộng lớn.
+      </p>
+
+      <h2>🫘 Hạnh Nhân — Vua protein và vitamin E</h2>
+      <p>
+        Hạnh nhân dẫn đầu về <strong>protein</strong> (~21g/100g) và là nguồn
+        <strong>vitamin E</strong> tuyệt vời — một chất chống oxy hóa quan trọng bảo vệ
+        tế bào khỏi tổn thương. Hạnh nhân cũng cung cấp nhiều <strong>canxi</strong>
+        hơn các loại hạt khác, tốt cho xương và răng.
+      </p>
+      <p>
+        <em>Phù hợp nhất cho:</em> người tập thể dục, muốn tăng protein từ nguồn thực vật,
+        hoặc cần bổ sung vitamin E và canxi.
+      </p>
+
+      <h2>🧠 Óc Chó — Vô địch về Omega-3</h2>
+      <p>
+        Óc chó có hàm lượng <strong>omega-3</strong> cao nhất trong nhóm hạt cây —
+        khoảng 9g/100g dưới dạng ALA (alpha-linolenic acid). Omega-3 có vai trò quan trọng
+        trong sức khỏe não bộ, tim mạch và giảm viêm. Óc chó cũng chứa nhiều
+        <strong>polyphenol và chất chống oxy hóa</strong> mạnh.
+      </p>
+      <p>
+        <em>Phù hợp nhất cho:</em> người muốn tập trung bổ sung omega-3 thực vật và
+        các chất chống oxy hóa.
+      </p>
+
+      <h2>🍚 Hạt Điều — Giàu khoáng chất, ít béo hơn</h2>
+      <p>
+        Hạt điều có hàm lượng chất béo thấp hơn macca, nhưng lại cung cấp nhiều
+        <strong>kẽm (zinc)</strong> và <strong>sắt</strong> hơn — hai khoáng chất quan trọng
+        cho hệ miễn dịch và tạo máu. Hạt điều có vị thanh, ít béo hơn nên dễ ăn vặt
+        mà không lo "ngán".
+      </p>
+      <p>
+        <em>Phù hợp nhất cho:</em> người cần bổ sung sắt và kẽm, hoặc muốn loại hạt
+        có vị nhẹ hơn.
+      </p>
+
+      <h2>Vậy nên chọn loại nào?</h2>
+      <p>
+        Thực ra không có loại hạt nào "tốt nhất tuyệt đối" — mỗi loại có thế mạnh riêng.
+        Bí quyết là <strong>đa dạng hóa</strong>: ăn nhiều loại khác nhau để cơ thể
+        nhận được đầy đủ các dưỡng chất.
+      </p>
+
+      <div style="background:#f9f7f2;border-left:4px solid var(--gold, #b5882a);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0;">
+        <p style="margin:0;font-weight:600;">Tóm lại:</p>
+        <ul style="margin:0.5rem 0 0;">
+          <li><strong>Macca</strong> — chọn khi muốn chất béo tốt (MUFA) cao nhất, low-carb, hương vị đặc biệt.</li>
+          <li><strong>Hạnh nhân</strong> — chọn khi cần protein + vitamin E.</li>
+          <li><strong>Óc chó</strong> — chọn khi muốn omega-3 từ hạt cây.</li>
+          <li><strong>Hạt điều</strong> — chọn khi cần kẽm, sắt, hoặc muốn vị nhẹ hơn.</li>
+        </ul>
+      </div>
+
+      <p>
+        Nếu bạn muốn thưởng thức cả bốn loại cùng lúc, <strong>hộp hỗn hợp hạt</strong>
+        là lựa chọn tiện lợi — vừa đa dạng dinh dưỡng, vừa không bị nhàm chán.
+        Rio Macca cũng có sản phẩm hạt macca sấy nguyên chất nếu bạn muốn trải nghiệm
+        hương vị đặc trưng của loại hạt này.
+      </p>
+
+      <div style="text-align:center;margin:2rem 0;">
+        <a href="/products" style="display:inline-block;background:var(--green,#2d6a4f);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;">
+          Xem sản phẩm hạt macca →
+        </a>
+      </div>
+    </article>
+
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #eee;">
+      <a href="/blog" class="btn-primary">← Quay lại Blog</a>
+    </div>
+  </div>
+</BaseLayout>

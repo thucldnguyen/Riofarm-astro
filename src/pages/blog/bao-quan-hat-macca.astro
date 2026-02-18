@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: 'Bảo Quản Hạt Macca Đúng Cách — Giữ Trọn Hương Vị Tươi Lâu',
+  image: 'https://riofarm.vn/blogs/coso3.jpeg',
+  author: { '@type': 'Organization', name: 'Rio Farm' },
+  publisher: { '@type': 'Organization', name: 'Rio Farm', logo: { '@type': 'ImageObject', url: 'https://riofarm.vn/products/logo.jpg' } },
+  datePublished: '2025-07-01',
+  description: 'Hướng dẫn bảo quản hạt macca đúng cách để giữ hương vị tươi ngon lâu dài — từ nhiệt độ, ánh sáng đến cách nhận biết hạt hỏng.',
+};
+---
+
+<BaseLayout
+  title="Bảo Quản Hạt Macca Đúng Cách — Giữ Trọn Hương Vị Tươi Lâu | Rio Farm Blog"
+  description="Hướng dẫn bảo quản hạt macca đúng cách để giữ hương vị tươi ngon lâu dài — từ nhiệt độ, ánh sáng đến cách nhận biết hạt hỏng."
+  canonical="https://riofarm.vn/blog/bao-quan-hat-macca"
+  ogType="article"
+  ogImage="/blogs/coso3.jpeg"
+  jsonLd={jsonLd}
+>
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/blog">Blog</a><span>›</span>
+      <span>Bảo quản hạt macca đúng cách</span>
+    </nav>
+
+    <header style="margin-bottom:2rem;">
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">Mẹo hay</span>
+      <h1 style="font-size:2.2rem;font-weight:800;margin:0.5rem 0 1rem;line-height:1.3;">Bảo Quản Hạt Macca Đúng Cách — Giữ Trọn Hương Vị Tươi Lâu</h1>
+    </header>
+
+    <article class="blog-content">
+      <p style="font-style:italic;color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem;">
+        Hạt macca có giá trị dinh dưỡng cao và hương vị đặc trưng không loại hạt nào sánh được.
+        Nhưng nếu bảo quản không đúng cách, hạt rất dễ bị ỉu, ôi thiu và mất đi vị ngon
+        vốn có. Bài viết này sẽ hướng dẫn bạn cách giữ hạt macca tươi ngon lâu nhất có thể.
+      </p>
+
+      <div style="text-align:center;margin:1.5rem 0;">
+        <img
+          src="/blogs/coso3.jpeg"
+          alt="Cách bảo quản hạt macca đúng cách"
+          style="max-width:100%;border-radius:12px;"
+          loading="lazy"
+        />
+      </div>
+
+      <h2>Tại sao hạt macca cần được bảo quản cẩn thận?</h2>
+      <p>
+        Hạt macca có hàm lượng <strong>chất béo rất cao</strong> — khoảng 75–76% trọng lượng.
+        Chính lượng chất béo dồi dào này là lý do khiến macca ngon đến vậy, nhưng cũng là
+        "điểm yếu" của nó: <strong>chất béo rất nhạy cảm với ánh sáng, nhiệt độ và oxy</strong>.
+        Khi tiếp xúc với các yếu tố này lâu ngày, chất béo bị oxy hóa — quá trình
+        gọi là <em>ôi thiu (rancidity)</em> — khiến hạt có mùi khó chịu và mất chất dinh dưỡng.
+      </p>
+      <p>
+        Việt Nam có khí hậu nóng ẩm, đặc biệt ở các tỉnh phía Nam, nên yếu tố nhiệt độ
+        và độ ẩm càng cần được chú ý khi bảo quản hạt macca.
+      </p>
+
+      <h2>Thời hạn sử dụng theo cách bảo quản</h2>
+      <p>
+        Dưới đây là thời gian bảo quản tham khảo chung cho hạt macca đã qua sơ chế/sấy:
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0;">
+        <div style="background:#f9f7f2;border-radius:12px;padding:1.25rem;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🌡️</div>
+          <p style="font-weight:700;margin:0 0 0.25rem;">Nhiệt độ phòng</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin:0;">Hộp kín, nơi thoáng mát</p>
+          <p style="font-size:1.5rem;font-weight:800;color:var(--green,#2d6a4f);margin:0.5rem 0 0;">~3 tháng</p>
+        </div>
+        <div style="background:#f9f7f2;border-radius:12px;padding:1.25rem;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">❄️</div>
+          <p style="font-weight:700;margin:0 0 0.25rem;">Tủ lạnh</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin:0;">Ngăn mát, hộp kín</p>
+          <p style="font-size:1.5rem;font-weight:800;color:var(--green,#2d6a4f);margin:0.5rem 0 0;">~6 tháng</p>
+        </div>
+        <div style="background:#f9f7f2;border-radius:12px;padding:1.25rem;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🧊</div>
+          <p style="font-weight:700;margin:0 0 0.25rem;">Ngăn đông</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin:0;">Túi zip hoặc hộp kín</p>
+          <p style="font-size:1.5rem;font-weight:800;color:var(--green,#2d6a4f);margin:0.5rem 0 0;">~1 năm</p>
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--text-secondary);">
+        * Thời gian trên là ước tính chung cho hạt macca đã sơ chế. Thời hạn thực tế
+        phụ thuộc vào cách đóng gói và điều kiện bảo quản cụ thể.
+      </p>
+
+      <h2>✅ Nên làm gì khi bảo quản hạt macca</h2>
+      <ul>
+        <li>
+          <strong>Dùng hộp/túi kín khí:</strong> Sau khi mở gói, chuyển hạt sang hộp thủy tinh
+          hoặc hộp nhựa có nắp kín. Tránh để hạt tiếp xúc với không khí lâu ngày.
+        </li>
+        <li>
+          <strong>Để nơi mát, tối:</strong> Góc tủ bếp, ngăn mát tủ lạnh, hoặc tủ đựng đồ
+          khô — tránh xa ánh nắng trực tiếp và nguồn nhiệt (bếp, lò vi sóng).
+        </li>
+        <li>
+          <strong>Cho vào tủ lạnh nếu dùng lâu dài:</strong> Nếu bạn mua số lượng lớn hoặc
+          không ăn hết trong 1 tháng, bảo quản ngăn mát là lựa chọn an toàn hơn.
+        </li>
+        <li>
+          <strong>Đông lạnh để dự trữ:</strong> Hạt macca đông lạnh rất tốt — chỉ cần
+          bỏ ra ngoài 10–15 phút trước khi ăn là lấy lại độ giòn và hương vị.
+        </li>
+      </ul>
+
+      <h2>❌ Không nên làm gì</h2>
+      <ul>
+        <li>
+          <strong>Không để hở miệng túi:</strong> Hạt tiếp xúc oxy nhiều → oxy hóa nhanh,
+          hương vị nhạt dần và dễ bị ôi.
+        </li>
+        <li>
+          <strong>Không để gần nguồn nhiệt hoặc ánh nắng:</strong> Nhiệt độ cao đẩy nhanh
+          quá trình oxy hóa chất béo.
+        </li>
+        <li>
+          <strong>Không để gần thực phẩm có mùi mạnh:</strong> Hạt macca dễ hấp thụ mùi xung quanh.
+          Tránh để gần tỏi, hành, gia vị nặng mùi trong tủ lạnh.
+        </li>
+        <li>
+          <strong>Không để trong tủ lạnh không có hộp đậy:</strong> Độ ẩm trong tủ lạnh
+          có thể làm hạt bị ẩm và mất độ giòn.
+        </li>
+      </ul>
+
+      <h2>Làm sao biết hạt đã hỏng?</h2>
+      <p>
+        Trước khi ăn, hãy kiểm tra nhanh bằng hai bước đơn giản:
+      </p>
+
+      <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0;">
+        <p style="margin:0 0 0.5rem;font-weight:700;">🔍 Kiểm tra mùi trước</p>
+        <p style="margin:0;">
+          Hạt macca tươi có mùi bùi nhẹ, thơm béo tự nhiên. Nếu bạn ngửi thấy mùi
+          <strong>sơn, dầu nhớt, hoặc mùi chua khó chịu</strong> — đó là dấu hiệu
+          chất béo đã bị oxy hóa (ôi). Không nên ăn tiếp.
+        </p>
+      </div>
+
+      <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0;">
+        <p style="margin:0 0 0.5rem;font-weight:700;">👅 Thử nếm một hạt</p>
+        <p style="margin:0;">
+          Hạt tươi ngon có vị béo bùi, hơi ngọt nhẹ. Nếu có vị <strong>đắng,
+          chua, hoặc "chua chua" lạ</strong> — hạt đã bị hỏng. Không cần phải ăn thêm
+          để "chắc chắn" — vứt đi là an toàn nhất.
+        </p>
+      </div>
+
+      <h2>Mẹo mua số lượng lớn: chia phần và đông lạnh</h2>
+      <p>
+        Nếu bạn mua macca với số lượng lớn (để dùng dài hạn hoặc để quà),
+        đây là cách bảo quản thông minh:
+      </p>
+      <ol>
+        <li><strong>Chia hạt thành nhiều túi nhỏ</strong> (~100–200g mỗi túi), dùng túi zip hoặc hộp nhỏ.</li>
+        <li><strong>Để 1 phần vào ngăn mát</strong> để dùng trong 1–2 tuần tới.</li>
+        <li><strong>Phần còn lại cho vào ngăn đông</strong> — giữ được đến 1 năm mà không lo hư.</li>
+        <li>Khi cần dùng, lấy 1 túi ra để ở ngăn mát qua đêm trước khi ăn sáng hôm sau.</li>
+      </ol>
+
+      <div style="background:#f0f7f4;border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">
+        <p style="margin:0;font-size:0.95rem;">💡 <strong>Lưu ý khi rã đông:</strong> Không cần cho vào lò vi sóng.
+        Chỉ cần để tự nhiên ở nhiệt độ phòng 10–20 phút là hạt trở lại trạng thái
+        ngon nhất. Một khi đã rã đông, nên dùng trong vòng 1–2 tuần và
+        không đông lạnh lại lần nữa.</p>
+      </div>
+
+      <h2>Tóm tắt nhanh</h2>
+      <div style="background:#f9f7f2;border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;">
+        <ul style="margin:0;line-height:2;">
+          <li>🔒 Luôn đậy kín sau khi dùng</li>
+          <li>🌚 Nơi tối, mát, khô ráo = tốt nhất</li>
+          <li>❄️ Ngăn mát → ~6 tháng | Ngăn đông → ~1 năm</li>
+          <li>👃 Ngửi thấy mùi lạ → không ăn</li>
+          <li>📦 Mua nhiều → chia phần nhỏ, đông một phần</li>
+        </ul>
+      </div>
+
+      <p>
+        Bảo quản đúng cách, bạn sẽ luôn có hạt macca thơm ngon sẵn sàng mỗi khi cần —
+        dù là ăn vặt buổi chiều, bữa sáng, hay làm nguyên liệu nấu ăn.
+        Mua hạt macca chất lượng tốt cũng là bước đầu tiên quan trọng để có nền tảng
+        bảo quản tốt.
+      </p>
+
+      <div style="text-align:center;margin:2rem 0;">
+        <a href="/products" style="display:inline-block;background:var(--green,#2d6a4f);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;">
+          Xem sản phẩm hạt macca →
+        </a>
+      </div>
+    </article>
+
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #eee;">
+      <a href="/blog" class="btn-primary">← Quay lại Blog</a>
+    </div>
+  </div>
+</BaseLayout>
