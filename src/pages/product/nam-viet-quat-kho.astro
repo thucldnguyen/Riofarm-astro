@@ -72,6 +72,42 @@ const jsonLd = {
 
         <p class="product-copy">{product.description}</p>
 
+        <!-- Nutrition & Detail Section -->
+        <div style="margin:1.5rem 0;border:1px solid #eee;border-radius:10px;overflow:hidden;font-size:0.9rem;">
+          <div style="background:var(--gold);padding:0.6rem 1rem;">
+            <strong>Thông tin dinh dưỡng</strong> <span style="font-weight:400;font-size:0.8rem;">(per 28g / ~¼ cup)</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <tbody>
+              {[
+                ['Năng lượng', '92 kcal'],
+                ['Chất béo tổng', '0.3 g'],
+                ['Carbohydrate', '25 g'],
+                ['— Đường tự nhiên + bổ sung', '19 g'],
+                ['Chất xơ', '2 g'],
+                ['Vitamin C', '0.5 mg'],
+                ['Vitamin E', '0.6 mg'],
+                ['Mangan', '0.2 mg (9% DV)'],
+                ['Đồng', '0.03 mg'],
+              ].map(([label, value], i) => (
+                <tr style={`background:${i % 2 === 0 ? '#fafafa' : '#fff'};`}>
+                  <td style="padding:0.45rem 1rem;color:#444;">{label}</td>
+                  <td style="padding:0.45rem 1rem;text-align:right;font-weight:600;">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Benefits -->
+        <ul style="margin:1rem 0 1.5rem;padding-left:1.25rem;line-height:2;font-size:0.9rem;color:#444;">
+          <li>🫧 Hỗ trợ sức khỏe đường tiết niệu — proanthocyanidin ngăn vi khuẩn bám vào thành bàng quang</li>
+          <li>🛡️ Chống oxy hóa mạnh — giàu polyphenol, bảo vệ tế bào khỏi gốc tự do</li>
+          <li>❤️ Tốt cho tim mạch — giảm viêm, hỗ trợ huyết áp ổn định</li>
+          <li>🦷 Bảo vệ sức khỏe răng miệng — ức chế vi khuẩn gây sâu răng</li>
+          <li>🎨 Màu đỏ tự nhiên đẹp — lý tưởng để trang trí bánh, granola, yogurt</li>
+        </ul>
+
         <div style="margin-bottom:1rem;">
           <label for="qty" class="product-qty-label">Số lượng</label>
           <input id="qty" type="number" min="1" value="1" class="product-qty-input" />

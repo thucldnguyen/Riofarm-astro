@@ -57,6 +57,40 @@ const jsonLd = {
 
         <p class="product-copy">{product.description}</p>
 
+        <!-- Nutrition & Detail Section -->
+        <div style="margin:1.5rem 0;border:1px solid #eee;border-radius:10px;overflow:hidden;font-size:0.9rem;">
+          <div style="background:var(--gold);padding:0.6rem 1rem;">
+            <strong>Thông tin dinh dưỡng</strong> <span style="font-weight:400;font-size:0.8rem;">(per 1 muỗng canh / 14g)</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <tbody>
+              {[
+                ['Năng lượng', '124 kcal'],
+                ['Chất béo tổng', '14 g'],
+                ['— Chất béo không bão hòa đơn (MUFA)', '11.3 g (81%)'],
+                ['— Chất béo không bão hòa đa (PUFA)', '0.4 g'],
+                ['— Chất béo bão hòa', '2.2 g'],
+                ['Vitamin E', '0.5 mg'],
+                ['Điểm bốc khói', '~210°C (phù hợp chiên, xào nhẹ)'],
+              ].map(([label, value], i) => (
+                <tr style={`background:${i % 2 === 0 ? '#fafafa' : '#fff'};`}>
+                  <td style="padding:0.45rem 1rem;color:#444;">{label}</td>
+                  <td style="padding:0.45rem 1rem;text-align:right;font-weight:600;">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Benefits -->
+        <ul style="margin:1rem 0 1.5rem;padding-left:1.25rem;line-height:2;font-size:0.9rem;color:#444;">
+          <li>🫀 Giàu omega-9 (oleic acid) — hỗ trợ tim mạch, chống viêm tự nhiên</li>
+          <li>🍳 Điểm bốc khói cao ~210°C — an toàn cho chiên xào, không sinh độc chất</li>
+          <li>💆 Dưỡng da và tóc — thấm nhanh, không nhờn, phù hợp dùng trực tiếp lên da</li>
+          <li>🥗 Thay thế dầu ô liu — hương nhẹ, không át mùi thức ăn</li>
+          <li>🌿 Không chất bảo quản, không biến đổi gen</li>
+        </ul>
+
         <div style="margin-bottom:1rem;">
           <label for="qty" class="product-qty-label">Số lượng</label>
           <input id="qty" type="number" min="1" value="1" class="product-qty-input" />

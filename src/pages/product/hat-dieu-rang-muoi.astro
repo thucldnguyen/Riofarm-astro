@@ -72,6 +72,44 @@ const jsonLd = {
 
         <p class="product-copy">{product.description}</p>
 
+        <!-- Nutrition & Detail Section -->
+        <div style="margin:1.5rem 0;border:1px solid #eee;border-radius:10px;overflow:hidden;font-size:0.9rem;">
+          <div style="background:var(--gold);padding:0.6rem 1rem;">
+            <strong>Thông tin dinh dưỡng</strong> <span style="font-weight:400;font-size:0.8rem;">(per 28g / ~18 hạt)</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <tbody>
+              {[
+                ['Năng lượng', '163 kcal'],
+                ['Chất béo tổng', '13 g'],
+                ['— Chất béo không bão hòa đơn', '7.7 g'],
+                ['Protein', '5 g'],
+                ['Carbohydrate', '9 g'],
+                ['Chất xơ', '1 g'],
+                ['Sắt', '1.9 mg (11% DV)'],
+                ['Kẽm', '1.6 mg (15% DV)'],
+                ['Đồng', '0.6 mg (69% DV)'],
+                ['Magiê', '83 mg (20% DV)'],
+                ['Phospho', '168 mg (13% DV)'],
+              ].map(([label, value], i) => (
+                <tr style={`background:${i % 2 === 0 ? '#fafafa' : '#fff'};`}>
+                  <td style="padding:0.45rem 1rem;color:#444;">{label}</td>
+                  <td style="padding:0.45rem 1rem;text-align:right;font-weight:600;">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Benefits -->
+        <ul style="margin:1rem 0 1.5rem;padding-left:1.25rem;line-height:2;font-size:0.9rem;color:#444;">
+          <li>🩸 Giàu sắt và đồng — hỗ trợ tạo máu, phù hợp phụ nữ và người thiếu máu</li>
+          <li>💪 Cung cấp magiê dồi dào — giảm mệt mỏi, hỗ trợ giấc ngủ</li>
+          <li>🦴 Phospho và kẽm cho xương chắc khỏe và miễn dịch tốt</li>
+          <li>🧠 Chứa tryptophan — tiền chất serotonin, giúp tâm trạng tốt hơn</li>
+          <li>🍿 Rang muối vừa phải — đậm đà, không quá mặn, ăn vặt không tội lỗi</li>
+        </ul>
+
         <div style="margin-bottom:1rem;">
           <label for="qty" class="product-qty-label">Số lượng</label>
           <input id="qty" type="number" min="1" value="1" class="product-qty-input" />

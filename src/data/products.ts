@@ -30,7 +30,7 @@ export const products: Product[] = [
       { image: '/products/macca3.jpg', alt: 'Hạt macadamia Rio sấy khô 3' },
       { image: '/products/macca4.jpg', alt: 'Hạt macadamia Rio sấy khô 4' },
     ],
-    description: 'Hạt macadamia do cơ sở Rio Macca sản xuất có nguồn gốc tại chỗ, sấy và đóng gói ở Lâm Hà, Lâm Đồng.',
+    description: 'Hạt macadamia sấy nguyên vỏ từ vườn Lâm Hà, Lâm Đồng — cao nguyên ở độ cao ~1.000 m, khí hậu lý tưởng cho cây mắc ca. Giàu chất béo không bão hòa đơn (oleic acid) bậc nhất trong các loại hạt, hỗ trợ tim mạch và não bộ. Đạt chứng nhận OCOP 3 sao, đóng gói hút chân không hoặc lon PET.',
   },
   {
     productCode: 'macca-oil',
@@ -44,7 +44,7 @@ export const products: Product[] = [
       { image: '/products/dau-macca.jpg', alt: 'Dầu macadamia Rio Farm' },
       { image: '/products/dau-macca2.jpg', alt: 'Dầu macadamia Rio Farm 2' },
     ],
-    description: 'Dầu macadamia do cơ sở Rio Macca sản xuất có nguồn gốc tại chỗ, ép lạnh và đóng gói ở Lâm Hà, Lâm Đồng.',
+    description: 'Dầu macadamia ép từ hạt mắc ca nguyên chất tại cơ sở Rio Macca, Lâm Hà. Tỷ lệ axit oleic (omega-9) cao đến 80% — vượt trội hơn dầu ô liu. Dùng được cho nấu ăn, trộn salad, và dưỡng da tóc tự nhiên.',
   },
   {
     productCode: 'mix-nuts',
@@ -57,7 +57,7 @@ export const products: Product[] = [
     gallery: [
       { image: '/products/hat_mix.jpg', alt: 'Hạt mix Rio Farm' },
     ],
-    description: 'Hỗn hợp các loại hạt dinh dưỡng do cơ sở Rio Macca tuyển chọn và đóng gói ở Lâm Hà, Lâm Đồng.',
+    description: 'Hỗn hợp các loại hạt dinh dưỡng được Rio Farm tuyển chọn và đóng gói tại Lâm Hà: macca, hạnh nhân, điều, dẻ cười và hơn thế nữa. Bữa ăn nhẹ cân bằng dinh dưỡng — cung cấp protein, chất béo lành mạnh, vitamin và khoáng chất từ nhiều nguồn hạt khác nhau.',
   },
   {
     productCode: 'hat-de-cuoi',
@@ -85,7 +85,7 @@ export const products: Product[] = [
     gallery: [
       { image: '/products/hanh_nhan_rang_bo.jpg', alt: 'Hạnh nhân rang bơ Rio Farm' },
     ],
-    description: 'Hạnh nhân rang bơ thơm ngậy, giàu vitamin E và chất béo tốt. Đóng gói tiêu chuẩn tại riofarm.vn, hạn sử dụng 6 tháng.',
+    description: 'Hạnh nhân nguyên hạt rang bơ vừa chín — béo thơm, giòn rụm, đậm vị. Giàu vitamin E, magiê và chất béo không bão hòa. Một trong những nguồn protein thực vật và canxi tốt nhất trong các loại hạt.',
   },
   {
     productCode: 'hat-dieu-rang-muoi',
@@ -98,7 +98,7 @@ export const products: Product[] = [
     gallery: [
       { image: '/products/hat_dieu_rang_muoi.jpg', alt: 'Hạt điều rang muối Rio Farm' },
     ],
-    description: 'Hạt điều rang muối RIO - 99.9% hạt điều tự nhiên, 1% muối. Đóng hộp 500gr, NSX 30/01/2026, HSD 6 tháng. Địa chỉ: Đoàn Kết, Đan Phượng, Lâm Hà, Lâm Đồng.',
+    description: 'Hạt điều rang muối vừa ăn — béo bùi, mặn nhẹ, khó cưỡng. Giàu kẽm, sắt, đồng và magiê. Là loại hạt có hàm lượng sắt cao nhất — rất tốt cho người thiếu máu và phụ nữ.',
   },
   {
     productCode: 'nam-viet-quat-kho',
@@ -111,7 +111,7 @@ export const products: Product[] = [
     gallery: [
       { image: '/products/nam_viet_quat_kho.jpg', alt: 'Nam việt quất khô Rio Farm' },
     ],
-    description: 'Nam việt quất khô (dried blueberry/cranberry) phân phối bởi Rio Macca. Dùng ăn trực tiếp hoặc làm bánh mứt. Nguồn gốc tự nhiên, không chất bảo quản.',
+    description: 'Nam việt quất khô (dried cranberry) — vị chua ngọt tự nhiên, dẻo mềm, màu đỏ đẹp mắt. Nổi tiếng với hàm lượng proanthocyanidin cao, hỗ trợ sức khỏe đường tiết niệu và chống oxy hóa mạnh. Dùng ăn vặt, trộn salad, pha trà hoặc làm bánh.',
   },
   {
     productCode: 'mit-say',
@@ -125,7 +125,7 @@ export const products: Product[] = [
       { image: '/products/mit_say_1.jpg', alt: 'Mít sấy Rio Farm 1' },
       { image: '/products/mit_say_2.jpg', alt: 'Mít sấy Rio Farm 2' },
     ],
-    description: 'Mít sấy 100% nguyên chất tự nhiên. Mít thái không đường, vị ngọt tự nhiên. Đóng túi các size, giao hàng toàn quốc.',
+    description: 'Mít sấy giòn từ mít chín tươi — ngọt tự nhiên, thơm mùi mít đặc trưng, giòn tan không ngấy. Không dầu chiên, không phẩm màu. Nguồn cung cấp vitamin C, B6, kali và chất xơ tiêu hóa tốt.',
   },
   {
     productCode: 'xoai-say-deo',
@@ -138,7 +138,7 @@ export const products: Product[] = [
     gallery: [
       { image: '/products/xoai_say_deo.jpg', alt: 'Xoài sấy dẻo Rio Farm' },
     ],
-    description: 'Xoài sấy dẻo RIO - ngọt mềm tự nhiên, đóng hộp kín. Phân phối bởi Rio Macca, Lâm Hà. HSD 6 tháng. Dùng ăn trực tiếp.',
+    description: 'Xoài sấy dẻo từ xoài chín ngọt — dẻo mềm, đậm vị xoài, màu vàng cam hấp dẫn. Giữ lại vitamin C, beta-carotene và kali từ xoài tươi. Ăn vặt lành mạnh, không chất bảo quản nhân tạo.',
   },
 ];
 

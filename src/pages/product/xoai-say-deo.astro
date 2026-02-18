@@ -72,6 +72,43 @@ const jsonLd = {
 
         <p class="product-copy">{product.description}</p>
 
+        <!-- Nutrition & Detail Section -->
+        <div style="margin:1.5rem 0;border:1px solid #eee;border-radius:10px;overflow:hidden;font-size:0.9rem;">
+          <div style="background:var(--gold);padding:0.6rem 1rem;">
+            <strong>Thông tin dinh dưỡng</strong> <span style="font-weight:400;font-size:0.8rem;">(per 28g)</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <tbody>
+              {[
+                ['Năng lượng', '80 kcal'],
+                ['Chất béo tổng', '0.2 g'],
+                ['Carbohydrate', '20 g'],
+                ['— Đường tự nhiên', '17 g'],
+                ['Chất xơ', '1 g'],
+                ['Protein', '0.5 g'],
+                ['Vitamin C', '11 mg (12% DV)'],
+                ['Vitamin A (beta-carotene)', '45 µg RAE (5% DV)'],
+                ['Kali', '100 mg (2% DV)'],
+                ['Folate', '12 µg (3% DV)'],
+              ].map(([label, value], i) => (
+                <tr style={`background:${i % 2 === 0 ? '#fafafa' : '#fff'};`}>
+                  <td style="padding:0.45rem 1rem;color:#444;">{label}</td>
+                  <td style="padding:0.45rem 1rem;text-align:right;font-weight:600;">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Benefits -->
+        <ul style="margin:1rem 0 1.5rem;padding-left:1.25rem;line-height:2;font-size:0.9rem;color:#444;">
+          <li>☀️ Giàu beta-carotene — tiền vitamin A, tốt cho mắt và làn da</li>
+          <li>🍋 Vitamin C tự nhiên — tăng sức đề kháng, chống oxy hóa</li>
+          <li>🫀 Kali và folate — hỗ trợ tim mạch và sức khỏe tế bào</li>
+          <li>😋 Vị ngọt dẻo đặc trưng — không cần thêm đường, dễ ăn mọi lứa tuổi</li>
+          <li>✈️ Nhẹ, tiện mang đi — snack lý tưởng cho chuyến đi dài</li>
+        </ul>
+
         <div style="margin-bottom:1rem;">
           <label for="qty" class="product-qty-label">Số lượng</label>
           <input id="qty" type="number" min="1" value="1" class="product-qty-input" />

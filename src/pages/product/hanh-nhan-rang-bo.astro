@@ -72,6 +72,43 @@ const jsonLd = {
 
         <p class="product-copy">{product.description}</p>
 
+        <!-- Nutrition & Detail Section -->
+        <div style="margin:1.5rem 0;border:1px solid #eee;border-radius:10px;overflow:hidden;font-size:0.9rem;">
+          <div style="background:var(--gold);padding:0.6rem 1rem;">
+            <strong>Thông tin dinh dưỡng</strong> <span style="font-weight:400;font-size:0.8rem;">(per 28g / ~23 hạt)</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <tbody>
+              {[
+                ['Năng lượng', '170 kcal'],
+                ['Chất béo tổng', '15 g'],
+                ['— Chất béo không bão hòa đơn', '9.5 g'],
+                ['Protein', '6 g'],
+                ['Carbohydrate', '6 g'],
+                ['Chất xơ', '3.5 g'],
+                ['Vitamin E', '7.3 mg (49% DV)'],
+                ['Magiê', '76 mg (18% DV)'],
+                ['Canxi', '76 mg (6% DV)'],
+                ['Riboflavin (B2)', '0.3 mg (23% DV)'],
+              ].map(([label, value], i) => (
+                <tr style={`background:${i % 2 === 0 ? '#fafafa' : '#fff'};`}>
+                  <td style="padding:0.45rem 1rem;color:#444;">{label}</td>
+                  <td style="padding:0.45rem 1rem;text-align:right;font-weight:600;">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Benefits -->
+        <ul style="margin:1rem 0 1.5rem;padding-left:1.25rem;line-height:2;font-size:0.9rem;color:#444;">
+          <li>🛡️ Giàu vitamin E nhất trong các loại hạt — chống oxy hóa, bảo vệ tế bào</li>
+          <li>🫀 Hỗ trợ tim mạch — giảm LDL cholesterol khi ăn thường xuyên</li>
+          <li>🦷 Tốt cho xương và răng — cung cấp canxi và magiê</li>
+          <li>💊 Hỗ trợ kiểm soát đường huyết — chỉ số GI thấp, phù hợp người tiểu đường type 2</li>
+          <li>🔥 Rang bơ tạo hương thơm đặc trưng — ngon hơn hạnh nhân sống thông thường</li>
+        </ul>
+
         <div style="margin-bottom:1rem;">
           <label for="qty" class="product-qty-label">Số lượng</label>
           <input id="qty" type="number" min="1" value="1" class="product-qty-input" />
