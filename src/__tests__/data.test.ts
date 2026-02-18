@@ -3,8 +3,8 @@ import { blogPosts } from '../data/blog';
 import { products, getProductByCode } from '../data/products';
 
 describe('Blog data', () => {
-  it('should have 10 blog posts', () => {
-    expect(blogPosts).toHaveLength(10);
+  it('should have 11 blog posts', () => {
+    expect(blogPosts).toHaveLength(11);
   });
 
   it('should have correct slugs for all required blog posts', () => {
