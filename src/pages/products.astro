@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCollectionGrid from '../components/ProductCollectionGrid.astro';
+---
+
+<BaseLayout
+  title="Sản phẩm Rio Macca | Hạt mắc ca Lâm Hà"
+  description="Khám phá các sản phẩm hạt mắc ca Rio Macca từ Lâm Hà, Lâm Đồng."
+  canonical="https://riofarm.vn/products"
+>
+  <section class="section-pad">
+    <div class="container-large">
+      <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:.5rem;font-family:'Montserrat',sans-serif;">Sản phẩm Rio Macca</h1>
+      <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Chọn sản phẩm phù hợp và liên hệ để được tư vấn nhanh nhất.</p>
+      <ProductCollectionGrid />
+    </div>
+  </section>
+</BaseLayout>
